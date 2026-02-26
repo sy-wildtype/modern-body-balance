@@ -18,8 +18,8 @@
     .hero {
         position: relative;
         min-height: 100vh;
-        background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920&auto=format&fit=crop')
-                    center / cover no-repeat;
+        background: url('assets/images/mbb-hero.jpg')
+                    center 40% / cover no-repeat;
     }
 
     .hero::after {
@@ -227,8 +227,10 @@
     }
 
     .scroll-container {
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
     }
 
     .scroll-track {
@@ -252,9 +254,9 @@
         body { padding-top: 56px; } /* smaller offset for small headers */
 
         /* HERO */
-        .hero { 
-            min-height: 85vh; 
-            background-position: center;
+.hero {
+            min-height: 85vh;
+            background-position: center 40%;
             display: flex;
             align-items: center;         /* vertical */
             justify-content: center;     /* horizontal */
@@ -398,7 +400,7 @@
             <div class="row justify-content-center g-5">
             <!-- Card 1 -->
             <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="5-must-have.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <a href="blog/How-to-Tackle-Cat-Allergies.html" class="feature-card d-block rounded-pill overflow-hidden">
                 <div class="ratio" style="--bs-aspect-ratio: 150%;">
                     <img
                     src="assets/images/best-air-purifier.png"
@@ -412,7 +414,7 @@
 
             <!-- Card 2 -->
             <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="keep-home-chic.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <a href="breathe-easy-live-better.html" class="feature-card d-block rounded-pill overflow-hidden">
                 <div class="ratio" style="--bs-aspect-ratio: 150%;">
                     <img
                     src="assets/images/Burmese-Cats-2.jpg"
@@ -516,11 +518,11 @@
         <div class="scroll-wrapper">
             <div class="scroll-container" id="scrollContainer">
             <div class="scroll-track" id="scrollTrack">
-                <img src="assets/images/bedsheets.png" alt="">
-                <img src="assets/images/Himalayan_cat.jpg" alt="">
-                <img src="assets/images/hepafilter.png" alt="">
-                <img src="assets/images/best-air-purifier.png" alt="">
-                <img src="assets/images/schnauzer.jpg" alt="">
+                <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" alt="" width="400" height="400" loading="lazy">
+                <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="" width="400" height="400" loading="lazy">
+                <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" alt="" width="400" height="400" loading="lazy">
+                <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" alt="" width="400" height="400" loading="lazy">
+                <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" alt="" width="400" height="400" loading="lazy">
             </div>
             </div>
         </div>
@@ -540,83 +542,6 @@
     </section>
       
 
-
-  <script>    
-    // =========================================================== infinite scroll ======================================
-
-        const track = document.getElementById('scrollTrack');
-        const container = document.getElementById('scrollContainer');
-
-        const autoDir = 1;           // auto-scroll direction: 1 = right
-        const autoSpeed = 1;         // px per frame for auto-scroll
-
-        // Keep count of originals so we can measure just one set
-        const originalChildren = [...track.children];
-        const originalCount = originalChildren.length;
-
-        // 1) Make sure originals are ready so width is stable
-        function waitForImages(nodes) {
-            const imgs = nodes.flatMap(n => [...n.querySelectorAll?.('img') || []]);
-            if (imgs.length === 0) return Promise.resolve();
-            return Promise.all(imgs.map(img => img.complete ? Promise.resolve() :
-            new Promise(res => img.addEventListener('load', res, {once:true}))));
-        }
-
-        // 2) Duplicate originals once for seamless loop
-        function duplicateChildren() {
-            const clones = originalChildren.map(n => n.cloneNode(true));
-            clones.forEach(c => track.appendChild(c));
-        }
-
-        // 3) Measure width of JUST the original set to avoid rounding issues
-        let halfWidth = 0;
-        function measureHalfWidth() {
-            let w = 0;
-            for (let i = 0; i < originalCount; i++) {
-            w += track.children[i].getBoundingClientRect().width;
-            // add gap between items (gap * count-1)
-            if (i < originalCount - 1) {
-                const gap = parseFloat(getComputedStyle(track).gap || '0');
-                w += gap;
-            }
-            }
-            halfWidth = Math.round(w);
-            // park the scroll slightly off 0 to avoid fractional rounding cases
-            container.scrollLeft = 0.5;
-        }
-
-        // 4) Wrap in [0, halfWidth)
-        function normalize(left) {
-            return ((left % halfWidth) + halfWidth) % halfWidth;
-        }
-
-        // 5) RAF loop: auto-scroll
-        let rafId = null;
-        function tick() {
-            if (halfWidth <= 0) { rafId = requestAnimationFrame(tick); return; }
-            container.scrollLeft = normalize(container.scrollLeft + autoDir * autoSpeed);
-            rafId = requestAnimationFrame(tick);
-        }
-        function ensureRunning() { if (!rafId) rafId = requestAnimationFrame(tick); }
-
-        // 6) Start auto-scroll
-        ensureRunning();
-
-        // 7) Init sequence
-        (async function init(){
-            // Reserve layout with CSS sizes; still wait for image decodes for safety
-            await waitForImages(originalChildren);
-            duplicateChildren();
-            measureHalfWidth();
-        })();
-
-        // 8) Re-measure on resize (prevents jitter after responsive breakpoints)
-        const ro = new ResizeObserver(() => {
-            measureHalfWidth();
-        });
-        ro.observe(container);
-
-  </script>
 
 </body>
 </html>
