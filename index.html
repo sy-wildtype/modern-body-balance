@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Body Balance</title>
+
+  <style>
+    :root {
+      --header-height: 124px;
+    }
+
+    body {
+      padding-top: 60px; /* Prevent content from being hidden behind fixed header */
+    }
+
+    /* Fullscreen background section */
+    .hero {
+        position: relative;
+        min-height: 100vh;
+        background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920&auto=format&fit=crop')
+                    center / cover no-repeat;
+    }
+
+    .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+    }
+
+    /* Floating card styling */
+    .hero-card {
+        position: absolute;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+        height: auto;
+        max-height: 85vh;
+        max-width: 420px;
+        background: #534034;
+        backdrop-filter: blur(6px);
+        border-radius: 1rem;
+        padding: 1.25rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        z-index: 1;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+    }
+
+    .hero-card hr {
+        margin: 0.75rem 0;
+        border-top: 2px solid #949494;
+        width: 100%;
+        opacity: 1;
+    }
+
+    .hero-card > * {
+        flex: 0 0 auto;          /* size to content so nothing is clipped */
+    }
+
+    .hero-card img {
+        width: 100%;
+        max-height: 280px;
+        object-fit: contain;
+        border-radius: .75rem;
+        display: block;
+    }
+
+
+    /* Solid background section */
+    .features-section {
+        height: 60vh; 
+        background: #e9d1c5; /* pick any solid color you like */
+        align-items: center; /* vertical centering */
+        display: flex;       /* flex container */
+    }
+
+    /* Make images fully cover the square */
+    .img-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transform: scale(1);
+        transition: transform 220ms ease, filter 220ms ease;
+    }
+
+    /* Subtle lift/zoom on hover & keyboard focus */
+    .feature-card {
+        transition: transform 220ms ease, box-shadow 220ms ease;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+    .feature-card:hover,
+    .feature-card:focus-visible {
+        transform: scale(1.1);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+    .feature-card:hover .img-cover,
+    .feature-card:focus-visible .img-cover {
+        transform: scale(1.1);
+        filter: saturate(1.03);
+    }
+
+    /* Respect reduced motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+        .feature-card,
+        .img-cover {
+            transition: none;
+        }
+    }
+
+    /* Section background + spacing for the pinned title */
+    .links-section {
+        height: 70vh; 
+        background: #534034;             /* change to your brand color */
+        padding-top: 4.25rem;            /* keeps content clear of the pinned title */
+    }
+
+    /* Title pinned to top-left inside the section */
+    .links-section .section-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2rem, 3vw + 1rem, 3rem);
+        font-weight: 700;
+        color: #ffffff; /* or your brand color */
+        letter-spacing: 1px;
+    }
+
+
+    /* Make card images cover nicely */
+    .img-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* Clickable card polish */
+    .link-card {
+        border: 0;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .link-card:hover,
+    .link-card:focus-visible {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+    }
+
+    .link-card .card-body {
+        padding: 0.9rem 1rem 1.05rem;
+    }
+
+    .links-section .link-card .card-body h3 {
+        font-size: 1.2rem;
+    }
+    .links-section .link-card .card-body p {
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+    .links-section-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        padding: 1rem 0 0;
+    }
+    .links-section-header .section-title { margin-bottom: 0; }
+    .links-section .view-all-btn {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        margin-right: 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fff;
+        background: transparent;
+        border: 2px solid rgba(255,255,255,0.8);
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background 0.2s, border-color 0.2s;
+    }
+    .links-section .view-all-btn:hover {
+        background: rgba(255,255,255,0.15);
+        border-color: #fff;
+        color: #fff;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .link-card { transition: none; }
+    }
+
+    /* ================================ scroll bar ================================ */
+    .scroll-section {
+        height: 70vh; 
+        overflow: hidden;
+        background-color: #fde1d6;
+    }  
+
+    .scroll-section .section-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(2rem, 3vw + 1rem, 3rem);
+        font-weight: 700;
+        color: #534034; /* or your brand color */
+        letter-spacing: 1px;
+        margin-top: 1%;
+    }
+    .scroll-section hr {
+        margin: 2% 0 2% 0;
+        border-top: 2px solid #534034;
+        width: 100%;
+        opacity: 1;
+    }    
+
+    .scroll-wrapper {
+        position: relative;
+        width: 100%;
+        align-items: center; /* vertical centering */
+        display: flex;       /* flex container */
+    }
+
+    .scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    }
+
+    .scroll-track {
+    display: inline-flex;
+    gap: 2rem;
+    }
+
+    .scroll-track img {
+    width: 400px;        /* Make width and height the same for perfect circles */
+    height: 400px;
+    object-fit: cover;   /* Keep the image centered and cropped */
+    flex-shrink: 0;
+    border-radius: 50%;  /* Makes them circular */
+    border: 0px;
+    display: block;
+    }
+
+
+    @media (max-width: 576.98px) {
+
+        body { padding-top: 56px; } /* smaller offset for small headers */
+
+        /* HERO */
+        .hero { 
+            min-height: 85vh; 
+            background-position: center;
+            display: flex;
+            align-items: center;         /* vertical */
+            justify-content: center;     /* horizontal */
+        }
+
+        .hero-card {
+            height: auto;
+            padding: 1rem;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 2rem);
+            max-width: 520px;
+        }
+
+        /* Don’t force equal heights; let content size naturally */
+        .hero-card > * { flex: initial; }
+        .hero-card hr { margin: .5rem 0; }
+        .hero-card img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: .75rem;
+        }
+
+        /* FEATURES */
+        .features-section {
+        height: auto;         /* avoid fixed vh on phones */
+        padding: 2rem 0;
+        }
+        .feature-card {
+        border-radius: 1rem;
+        }
+        /* Avoid jumpy hover transforms on touch devices */
+        .feature-card:hover,
+        .feature-card:focus-visible {
+        transform: none;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        /* LINKS (cards) */
+        .links-section {
+        height: auto;         /* avoid fixed vh */
+        padding-top: 3rem;
+        }
+        .links-section .section-title {
+        margin-left: 1rem;    /* ms-5 is a bit wide on phones */
+        }
+        .links-section .view-all-btn {
+        margin-right: 1rem;
+        padding: 0.4rem 1rem;
+        font-size: 0.95rem;
+        }
+        .link-card .card-body {
+        padding: .75rem .9rem;
+        }
+
+        /* SCROLLER */
+        .scroll-section {
+        height: auto;
+        padding: 1.25rem 0 1.75rem;
+        }
+        .scroll-section .section-title {
+        margin-left: 1rem;
+        font-size: clamp(2rem, 3vw + 1rem, 3rem);
+        }
+        .scroll-section hr {
+        margin: .75rem 0 1rem;
+        }
+        .scroll-container {
+        overflow-x: auto;               /* allow swipe/drag on phones */
+        -webkit-overflow-scrolling: touch;
+        }
+        .scroll-track {
+        gap: 2rem;
+        padding: 0 1rem;
+        }
+        .scroll-track img {
+        width: 140px;
+        height: 140px;                  /* keep circles compact */
+        }
+    }
+
+
+        /* ---------- Tablet tweaks (≤ 768px) ---------- */
+    @media (max-width: 768.98px) {
+
+        .features-section { height: auto; }
+
+        .scroll-track img {
+        width: 180px;
+        height: 180px;
+        }
+
+        /* Slightly soften hover transforms on medium screens */
+        .feature-card:hover,
+        .feature-card:focus-visible {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+        }
+        }
+
+
+        /* ---------- Micro-UX polish ---------- */
+
+        /* Combine transforms so they don't overwrite each other */
+        .feature-card:hover,
+        .feature-card:focus-visible {
+        transform: translateY(-2px) scale(1.03);
+    }
+  </style>
+
+  <script src="assets/js/main.js" defer></script>
+
+</head>
+
+<body class="page-home">
+  
+    <!-- Fullscreen hero -->
+    <section class="hero">
+        <!-- Floating window -->
+        <div class="hero-card">
+            <!-- Top text -->
+            <h2 class="h5 mb-2">Welcome to Modern Body Balance</h2>
+
+            <hr>
+            <!-- Middle text + button -->
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <p class="mb-0">Find your balance. Live well.</p>
+            </div>
+
+            <hr>
+
+            <!-- Image -->
+            <img src="assets/images/British-longhair.jpg" alt="Placeholder Image" class="img-fluid rounded">
+        </div>
+    </section>
+  
+    <!-- Features grid -->
+    <section class="features-section">
+        <div class="container py-5 py-md-6">
+            <div class="row justify-content-center g-5">
+            <!-- Card 1 -->
+            <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+                <a href="5-must-have.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <div class="ratio" style="--bs-aspect-ratio: 150%;">
+                    <img
+                    src="assets/images/best-air-purifier.png"
+                    class="img-cover"
+                    alt="Feature one"
+                    loading="lazy"
+                    />
+                </div>
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+                <a href="keep-home-chic.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <div class="ratio" style="--bs-aspect-ratio: 150%;">
+                    <img
+                    src="assets/images/Burmese-Cats-2.jpg"
+                    class="img-cover"
+                    alt="Feature two"
+                    loading="lazy"
+                    />
+                </div>
+                </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+                <a href="love-cat-love-home.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <div class="ratio" style="--bs-aspect-ratio: 150%;">
+                    <img
+                    src="https://cdn.shopify.com/s/files/1/0814/8369/4394/files/Email_body_desktop_1200x1000_5_480x480.png?v=1755538416"
+                    class="img-cover"
+                    alt="Feature three"
+                    loading="lazy"
+                    />
+                </div>
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Link cards section -->
+    <section class="links-section position-relative">
+        <div class="container">
+            <div class="links-section-header">
+                <h2 class="section-title ms-3">Latest Posts</h2>
+                <a href="blogs.html" class="view-all-btn">View all</a>
+            </div>
+        </div>
+        <div class="container pt-4 pb-4">
+            <div class="row g-5 justify-content-center">
+                <!-- Card 1 -->
+                <div class="col-10 col-sm-6 col-md-4">
+                    <a href="blog/How-to-Tackle-Cat-Allergies.html" class="card link-card h-100 text-decoration-none">
+                        <div class="ratio ratio-16x9">
+                        <img
+                            src="https://cdn.shopify.com/s/files/1/0814/8369/4394/files/Email_body_desktop_1200x1000_1_480x480.png?v=1755264810"
+                            class="card-img-top img-cover"
+                            alt="Product / Topic One"
+                            loading="lazy"
+                        />
+                        </div>
+                        <div class="card-body">
+                        <h3 class="h6 mb-1 text-body">How to tackle your allergy in Seattle?</h3>
+                        <p class="mb-0 text-body-secondary">Living in Seattle offers a unique blend of urban vibrancy and natural beauty, but it also presents challenges when it comes to maintaining a cat-friendly home. </p>
+                        </div>
+                    </a>
+                </div>
+        
+                <!-- Card 2 -->
+                <div class="col-10 col-sm-6 col-md-4">
+                    <a href="breathe-easy-live-better.html" class="card link-card h-100 text-decoration-none">
+                        <div class="ratio ratio-16x9">
+                        <img
+                            src="assets/images/young-woman-vacuuming-with-green-cleaning-products-2024-10-20-16-27-42-utc.jpg"
+                            class="card-img-top img-cover"
+                            alt="Product / Topic Two"
+                            loading="lazy"
+                        />
+                        </div>
+                        <div class="card-body">
+                        <h3 class="h6 mb-1 text-body">Breathe Easy, Live Better: Pacagen’s Home Mist Spray</h3>
+                        <p class="mb-0 text-body-secondary">Because nothing should come between you and feeling good at home — not even hidden dust. </p>
+                        </div>
+                    </a>
+                </div>
+        
+                <!-- Card 3 -->
+                <div class="col-10 col-sm-6 col-md-4">
+                    <a href="blog/Why-Urgent-Foster-Care.html" class="card link-card h-100 text-decoration-none">
+                        <div class="ratio ratio-16x9">
+                        <img
+                            src="https://cdn.shopify.com/s/files/1/0814/8369/4394/files/urgent_foster_480x480.png?v=1752607542"
+                            class="card-img-top img-cover"
+                            alt="Product / Topic Three"
+                            loading="lazy"
+                        />
+                        </div>
+                        <div class="card-body">
+                        <h3 class="h6 mb-1 text-body">Why rescue matters more than ever?</h3>
+                        <p class="mb-0 text-body-secondary">Every day, animal shelters across the country face one heartbreaking truth: there are more pets in need than there are homes available.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-section">
+        <div class="container pt-3">
+            <h2 class="section-title ms-3 mb-0">Follow us @Modern Body Balance</h2>
+        </div>
+        <hr class="my-0">
+        <div class="scroll-wrapper">
+            <div class="scroll-container" id="scrollContainer">
+            <div class="scroll-track" id="scrollTrack">
+                <img src="assets/images/bedsheets.png" alt="">
+                <img src="assets/images/Himalayan_cat.jpg" alt="">
+                <img src="assets/images/hepafilter.png" alt="">
+                <img src="assets/images/best-air-purifier.png" alt="">
+                <img src="assets/images/schnauzer.jpg" alt="">
+            </div>
+            </div>
+        </div>
+    </div>
+      
+      
+    <section class="three-col-section" style="display: none;">
+        <div class="col col1">
+          <p>Column 1</p>
+        </div>
+        <div class="col col2">
+          <p>Column 2</p>
+        </div>
+        <div class="col col3">
+          <p>Column 3</p>
+        </div>
+    </section>
+      
+
+
+  <script>    
+    // =========================================================== infinite scroll ======================================
+
+        const track = document.getElementById('scrollTrack');
+        const container = document.getElementById('scrollContainer');
+
+        const autoDir = 1;           // auto-scroll direction: 1 = right
+        const autoSpeed = 1;         // px per frame for auto-scroll
+
+        // Keep count of originals so we can measure just one set
+        const originalChildren = [...track.children];
+        const originalCount = originalChildren.length;
+
+        // 1) Make sure originals are ready so width is stable
+        function waitForImages(nodes) {
+            const imgs = nodes.flatMap(n => [...n.querySelectorAll?.('img') || []]);
+            if (imgs.length === 0) return Promise.resolve();
+            return Promise.all(imgs.map(img => img.complete ? Promise.resolve() :
+            new Promise(res => img.addEventListener('load', res, {once:true}))));
+        }
+
+        // 2) Duplicate originals once for seamless loop
+        function duplicateChildren() {
+            const clones = originalChildren.map(n => n.cloneNode(true));
+            clones.forEach(c => track.appendChild(c));
+        }
+
+        // 3) Measure width of JUST the original set to avoid rounding issues
+        let halfWidth = 0;
+        function measureHalfWidth() {
+            let w = 0;
+            for (let i = 0; i < originalCount; i++) {
+            w += track.children[i].getBoundingClientRect().width;
+            // add gap between items (gap * count-1)
+            if (i < originalCount - 1) {
+                const gap = parseFloat(getComputedStyle(track).gap || '0');
+                w += gap;
+            }
+            }
+            halfWidth = Math.round(w);
+            // park the scroll slightly off 0 to avoid fractional rounding cases
+            container.scrollLeft = 0.5;
+        }
+
+        // 4) Wrap in [0, halfWidth)
+        function normalize(left) {
+            return ((left % halfWidth) + halfWidth) % halfWidth;
+        }
+
+        // 5) RAF loop: auto-scroll
+        let rafId = null;
+        function tick() {
+            if (halfWidth <= 0) { rafId = requestAnimationFrame(tick); return; }
+            container.scrollLeft = normalize(container.scrollLeft + autoDir * autoSpeed);
+            rafId = requestAnimationFrame(tick);
+        }
+        function ensureRunning() { if (!rafId) rafId = requestAnimationFrame(tick); }
+
+        // 6) Start auto-scroll
+        ensureRunning();
+
+        // 7) Init sequence
+        (async function init(){
+            // Reserve layout with CSS sizes; still wait for image decodes for safety
+            await waitForImages(originalChildren);
+            duplicateChildren();
+            measureHalfWidth();
+        })();
+
+        // 8) Re-measure on resize (prevents jitter after responsive breakpoints)
+        const ro = new ResizeObserver(() => {
+            measureHalfWidth();
+        });
+        ro.observe(container);
+
+  </script>
+
+</body>
+</html>
