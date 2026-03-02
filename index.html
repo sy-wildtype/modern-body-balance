@@ -14,19 +14,15 @@
       padding-top: 60px; /* Prevent content from being hidden behind fixed header */
     }
 
-    /* Fullscreen background section */
+    /* Hero section - image smaller, aligned right with padding */
     .hero {
         position: relative;
         min-height: 100vh;
-        background: url('assets/images/mbb-hero.jpg')
-                    center 40% / cover no-repeat;
-    }
-
-    .hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.35);
+        background-color: #FFF2D0;
+        background-image: url('assets/images/mbb-hero.jpg');
+        background-repeat: no-repeat;
+        background-position: right 2rem center;
+        background-size: 55% auto;
     }
 
     /* Floating card styling */
@@ -38,13 +34,13 @@
         height: auto;
         max-height: 85vh;
         max-width: 420px;
-        background: #534034;
+        background: #BCD9A2;
         backdrop-filter: blur(6px);
         border-radius: 1rem;
         padding: 1.25rem;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
         z-index: 1;
-        color: white;
+        color: #005F02;
         display: flex;
         flex-direction: column;
         overflow: visible;
@@ -52,7 +48,7 @@
 
     .hero-card hr {
         margin: 0.75rem 0;
-        border-top: 2px solid #949494;
+        border-top: 2px solid rgba(255,255,255,0.6);
         width: 100%;
         opacity: 1;
     }
@@ -73,7 +69,7 @@
     /* Solid background section */
     .features-section {
         height: 60vh; 
-        background: #e9d1c5; /* pick any solid color you like */
+        background: #FFF2D0;
         align-items: center; /* vertical centering */
         display: flex;       /* flex container */
     }
@@ -116,17 +112,18 @@
     /* Section background + spacing for the pinned title */
     .links-section {
         height: 70vh; 
-        background: #534034;             /* change to your brand color */
+        background: #BCD9A2;
         padding-top: 4.25rem;            /* keeps content clear of the pinned title */
     }
 
     /* Title pinned to top-left inside the section */
     .links-section .section-title {
         font-family: 'Poppins', sans-serif;
-        font-size: clamp(2rem, 3vw + 1rem, 3rem);
+        font-size: clamp(1.35rem, 1.75vw + 0.9rem, 1.75rem);
         font-weight: 700;
-        color: #ffffff; /* or your brand color */
+        color: #005F02;
         letter-spacing: 1px;
+        padding-bottom: 0.75rem;
     }
 
 
@@ -201,20 +198,21 @@
     .scroll-section {
         height: 70vh; 
         overflow: hidden;
-        background-color: #fde1d6;
+        background-color: #FFF2D0;
     }  
 
     .scroll-section .section-title {
         font-family: 'Poppins', sans-serif;
-        font-size: clamp(2rem, 3vw + 1rem, 3rem);
+        font-size: clamp(1.35rem, 1.75vw + 0.9rem, 1.75rem);
         font-weight: 700;
-        color: #534034; /* or your brand color */
+        color: #005F02;
         letter-spacing: 1px;
         margin-top: 1%;
+        padding-bottom: 0.75rem;
     }
     .scroll-section hr {
         margin: 2% 0 2% 0;
-        border-top: 2px solid #534034;
+        border-top: 2px solid #005F02;
         width: 100%;
         opacity: 1;
     }    
@@ -253,13 +251,14 @@
 
         body { padding-top: 56px; } /* smaller offset for small headers */
 
-        /* HERO */
-.hero {
+        /* HERO - smaller, right-aligned with padding */
+        .hero {
             min-height: 85vh;
-            background-position: center 40%;
+            background-position: right 1rem center;
+            background-size: 70% auto;
             display: flex;
-            align-items: center;         /* vertical */
-            justify-content: center;     /* horizontal */
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-card {
@@ -320,7 +319,8 @@
         }
         .scroll-section .section-title {
         margin-left: 1rem;
-        font-size: clamp(2rem, 3vw + 1rem, 3rem);
+        font-size: clamp(1.35rem, 1.75vw + 0.9rem, 1.75rem);
+        padding-bottom: 0.75rem;
         }
         .scroll-section hr {
         margin: .75rem 0 1rem;
@@ -390,7 +390,7 @@
             <hr>
 
             <!-- Image -->
-            <img src="assets/images/British-longhair.jpg" alt="Placeholder Image" class="img-fluid rounded">
+            <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="Healthy lifestyle" class="img-fluid rounded">
         </div>
     </section>
   
@@ -400,12 +400,12 @@
             <div class="row justify-content-center g-5">
             <!-- Card 1 -->
             <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="blog/How-to-Tackle-Cat-Allergies.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <a href="blog/gut-health-101.html" class="feature-card d-block rounded-pill overflow-hidden">
                 <div class="ratio" style="--bs-aspect-ratio: 150%;">
                     <img
-                    src="assets/images/best-air-purifier.png"
+                    src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg"
                     class="img-cover"
-                    alt="Feature one"
+                    alt="Gut health and nutrition"
                     loading="lazy"
                     />
                 </div>
@@ -414,12 +414,12 @@
 
             <!-- Card 2 -->
             <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="breathe-easy-live-better.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <a href="blog/move-your-body.html" class="feature-card d-block rounded-pill overflow-hidden">
                 <div class="ratio" style="--bs-aspect-ratio: 150%;">
                     <img
-                    src="assets/images/Burmese-Cats-2.jpg"
+                    src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg"
                     class="img-cover"
-                    alt="Feature two"
+                    alt="Exercise and movement"
                     loading="lazy"
                     />
                 </div>
@@ -428,12 +428,12 @@
 
             <!-- Card 3 -->
             <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="love-cat-love-home.html" class="feature-card d-block rounded-pill overflow-hidden">
+                <a href="blog/eating-well-balanced-diet.html" class="feature-card d-block rounded-pill overflow-hidden">
                 <div class="ratio" style="--bs-aspect-ratio: 150%;">
                     <img
-                    src="https://cdn.shopify.com/s/files/1/0814/8369/4394/files/Email_body_desktop_1200x1000_5_480x480.png?v=1755538416"
+                    src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg"
                     class="img-cover"
-                    alt="Feature three"
+                    alt="Healthy diet and cooking"
                     loading="lazy"
                     />
                 </div>
@@ -455,54 +455,54 @@
             <div class="row g-5 justify-content-center">
                 <!-- Card 1 -->
                 <div class="col-10 col-sm-6 col-md-4">
-                    <a href="blog/How-to-Tackle-Cat-Allergies.html" class="card link-card h-100 text-decoration-none">
+                    <a href="blog/gut-health-101.html" class="card link-card h-100 text-decoration-none">
                         <div class="ratio ratio-16x9">
                         <img
-                            src="https://cdn.shopify.com/s/files/1/0814/8369/4394/files/Email_body_desktop_1200x1000_1_480x480.png?v=1755264810"
+                            src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg"
                             class="card-img-top img-cover"
-                            alt="Product / Topic One"
+                            alt="Gut health"
                             loading="lazy"
                         />
                         </div>
                         <div class="card-body">
-                        <h3 class="h6 mb-1 text-body">How to tackle your allergy in Seattle?</h3>
-                        <p class="mb-0 text-body-secondary">Living in Seattle offers a unique blend of urban vibrancy and natural beauty, but it also presents challenges when it comes to maintaining a cat-friendly home. </p>
+                        <h3 class="h6 mb-1 text-body">Gut Health 101: Why Your Gut Matters</h3>
+                        <p class="mb-0 text-body-secondary">Your gut affects your mood, immunity, and energy. Learn how to support a healthy microbiome with simple, everyday habits.</p>
                         </div>
                     </a>
                 </div>
         
                 <!-- Card 2 -->
                 <div class="col-10 col-sm-6 col-md-4">
-                    <a href="breathe-easy-live-better.html" class="card link-card h-100 text-decoration-none">
+                    <a href="blog/move-your-body.html" class="card link-card h-100 text-decoration-none">
                         <div class="ratio ratio-16x9">
                         <img
-                            src="assets/images/young-woman-vacuuming-with-green-cleaning-products-2024-10-20-16-27-42-utc.jpg"
+                            src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg"
                             class="card-img-top img-cover"
-                            alt="Product / Topic Two"
+                            alt="Exercise and wellness"
                             loading="lazy"
                         />
                         </div>
                         <div class="card-body">
-                        <h3 class="h6 mb-1 text-body">Breathe Easy, Live Better: Pacagen’s Home Mist Spray</h3>
-                        <p class="mb-0 text-body-secondary">Because nothing should come between you and feeling good at home — not even hidden dust. </p>
+                        <h3 class="h6 mb-1 text-body">Move Your Body: Simple Exercises for Everyday Wellness</h3>
+                        <p class="mb-0 text-body-secondary">You don’t need a gym to stay active. Discover easy ways to move more and feel stronger every day.</p>
                         </div>
                     </a>
                 </div>
         
                 <!-- Card 3 -->
                 <div class="col-10 col-sm-6 col-md-4">
-                    <a href="blog/Why-Urgent-Foster-Care.html" class="card link-card h-100 text-decoration-none">
+                    <a href="blog/eating-well-balanced-diet.html" class="card link-card h-100 text-decoration-none">
                         <div class="ratio ratio-16x9">
                         <img
-                            src="https://cdn.shopify.com/s/files/1/0814/8369/4394/files/urgent_foster_480x480.png?v=1752607542"
+                            src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg"
                             class="card-img-top img-cover"
-                            alt="Product / Topic Three"
+                            alt="Healthy diet"
                             loading="lazy"
                         />
                         </div>
                         <div class="card-body">
-                        <h3 class="h6 mb-1 text-body">Why rescue matters more than ever?</h3>
-                        <p class="mb-0 text-body-secondary">Every day, animal shelters across the country face one heartbreaking truth: there are more pets in need than there are homes available.</p>
+                        <h3 class="h6 mb-1 text-body">Eating Well: Building a Balanced Diet That Works</h3>
+                        <p class="mb-0 text-body-secondary">Good nutrition doesn’t have to be complicated. Practical tips for building a balanced diet that fits your life.</p>
                         </div>
                     </a>
                 </div>

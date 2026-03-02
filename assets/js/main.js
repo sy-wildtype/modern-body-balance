@@ -22,8 +22,8 @@ function insertHeadElements(pageType = 'root') {
         <link rel="manifest" href="${faviconPath}/site.webmanifest">
 
         <!-- Meta Tags -->
-        <meta name="theme-color" content="#2c5aa0">
-        <meta name="msapplication-TileColor" content="#2c5aa0">
+        <meta name="theme-color" content="#005F02">
+        <meta name="msapplication-TileColor" content="#005F02">
     `;
     
     // Insert the elements into the head
