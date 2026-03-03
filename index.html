@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modern Body Balance</title>
 
+  <!-- Prevent FOUC (Flash of Unstyled Content) -->
+  <style>
+    body {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .no-js body {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+  <script>document.documentElement.className += ' js';</script>
+
   <style>
     :root {
       --header-height: 124px;
@@ -196,10 +210,10 @@
 
     /* ================================ scroll bar ================================ */
     .scroll-section {
-        height: 70vh; 
+        height: 70vh;
         overflow: hidden;
         background-color: #FFF2D0;
-    }  
+    }
 
     .scroll-section .section-title {
         font-family: 'Poppins', sans-serif;
@@ -220,8 +234,29 @@
     .scroll-wrapper {
         position: relative;
         width: 100%;
-        align-items: center; /* vertical centering */
-        display: flex;       /* flex container */
+        align-items: center;
+        display: flex;
+        padding-top: 1.5rem;
+        overflow: hidden;
+    }
+
+    .scroll-fade-left,
+    .scroll-fade-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 5rem;
+        max-width: 120px;
+        pointer-events: none;
+        z-index: 2;
+    }
+    .scroll-fade-left {
+        left: 0;
+        background: linear-gradient(to right, #FFF2D0 0%, transparent 100%);
+    }
+    .scroll-fade-right {
+        right: 0;
+        background: linear-gradient(to left, #FFF2D0 0%, transparent 100%);
     }
 
     .scroll-container {
@@ -229,20 +264,23 @@
     overflow-y: hidden;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     }
+    .scroll-container::-webkit-scrollbar { display: none; }
 
     .scroll-track {
     display: inline-flex;
-    gap: 2rem;
+    gap: 1.25rem;
     }
 
     .scroll-track img {
-    width: 400px;        /* Make width and height the same for perfect circles */
-    height: 400px;
-    object-fit: cover;   /* Keep the image centered and cropped */
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     flex-shrink: 0;
-    border-radius: 50%;  /* Makes them circular */
-    border: 0px;
+    border-radius: 50%;
+    border: 0;
     display: block;
     }
 
@@ -329,42 +367,19 @@
         overflow-x: auto;               /* allow swipe/drag on phones */
         -webkit-overflow-scrolling: touch;
         }
+        .scroll-wrapper { padding-top: 1.25rem; }
         .scroll-track {
         gap: 2rem;
         padding: 0 1rem;
         }
         .scroll-track img {
-        width: 140px;
-        height: 140px;                  /* keep circles compact */
+        width: 100px;
+        height: 100px;
         }
     }
 
-
-        /* ---------- Tablet tweaks (≤ 768px) ---------- */
     @media (max-width: 768.98px) {
-
-        .features-section { height: auto; }
-
-        .scroll-track img {
-        width: 180px;
-        height: 180px;
-        }
-
-        /* Slightly soften hover transforms on medium screens */
-        .feature-card:hover,
-        .feature-card:focus-visible {
-        transform: translateY(-2px) scale(1.02);
-        box-shadow: 0 10px 24px rgba(0,0,0,0.10);
-        }
-        }
-
-
-        /* ---------- Micro-UX polish ---------- */
-
-        /* Combine transforms so they don't overwrite each other */
-        .feature-card:hover,
-        .feature-card:focus-visible {
-        transform: translateY(-2px) scale(1.03);
+        .scroll-track img { width: 120px; height: 120px; }
     }
   </style>
 
@@ -373,175 +388,103 @@
 </head>
 
 <body class="page-home">
-  
-    <!-- Fullscreen hero -->
-    <section class="hero">
-        <!-- Floating window -->
-        <div class="hero-card">
-            <!-- Top text -->
-            <h2 class="h5 mb-2">Welcome to Modern Body Balance</h2>
-
-            <hr>
-            <!-- Middle text + button -->
-            <div class="d-flex align-items-center justify-content-between mb-2">
-                <p class="mb-0">Find your balance. Live well.</p>
-            </div>
-
-            <hr>
-
-            <!-- Image -->
-            <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="Healthy lifestyle" class="img-fluid rounded">
-        </div>
-    </section>
-  
-    <!-- Features grid -->
-    <section class="features-section">
-        <div class="container py-5 py-md-6">
-            <div class="row justify-content-center g-5">
-            <!-- Card 1 -->
-            <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="blog/gut-health-101.html" class="feature-card d-block rounded-pill overflow-hidden">
-                <div class="ratio" style="--bs-aspect-ratio: 150%;">
-                    <img
-                    src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg"
-                    class="img-cover"
-                    alt="Gut health and nutrition"
-                    loading="lazy"
-                    />
+    <main>
+        <!-- Two-column hero (BSG-style) -->
+        <section class="hero-section py-5">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <p class="mt-4 fs-5 text-start">
+                            Welcome to Modern Body Balance. Find your balance and live well—with simple, practical guidance for gut health, movement, nutrition, sleep, and hydration.
+                        </p>
+                    </div>
+                    <div class="col-lg-6 position-relative text-center hero-image-wrapper">
+                        <img src="assets/images/mbb-hero.jpg" class="img-fluid rounded hero-image-large" alt="Modern Body Balance – wellness and balance" loading="eager" decoding="async">
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Latest Articles (BSG-style grid) -->
+        <div class="container my-5" id="articles">
+            <section class="featured-content d-flex justify-content-between align-items-center mb-4">
+                <h3>Latest Articles</h3>
+                <a href="blogs.html" class="read-all-link">
+                    <span>View all</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+            </section>
+            <div class="articles-gallery">
+                <a href="blog/gut-health-101.html" class="gallery-card text-decoration-none">
+                    <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="Gut health and nutrition" loading="lazy" decoding="async">
+                    <div class="gallery-card-content">
+                        <h5>Gut Health 101: Why Your Gut Matters</h5>
+                        <p>Your gut affects your mood, immunity, and energy. Learn how to support a healthy microbiome with simple, everyday habits.</p>
+                        <span class="custom-btn">Read More</span>
+                    </div>
+                </a>
+                <a href="blog/move-your-body.html" class="gallery-card text-decoration-none">
+                    <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" alt="Exercise and movement" loading="lazy" decoding="async">
+                    <div class="gallery-card-content">
+                        <h5>Move Your Body: Simple Exercises for Everyday Wellness</h5>
+                        <p>You don’t need a gym to stay active. Discover easy ways to move more and feel stronger every day.</p>
+                        <span class="custom-btn">Read More</span>
+                    </div>
+                </a>
+                <a href="blog/eating-well-balanced-diet.html" class="gallery-card text-decoration-none">
+                    <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" alt="Healthy diet and cooking" loading="lazy" decoding="async">
+                    <div class="gallery-card-content">
+                        <h5>Eating Well: Building a Balanced Diet That Works</h5>
+                        <p>Good nutrition doesn’t have to be complicated. Practical tips for building a balanced diet that fits your life.</p>
+                        <span class="custom-btn">Read More</span>
+                    </div>
+                </a>
+                <a href="sleep-better.html" class="gallery-card text-decoration-none">
+                    <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" alt="Sleep and rest" loading="lazy" decoding="async">
+                    <div class="gallery-card-content">
+                        <h5>Sleep Better: Tips for Restful Nights</h5>
+                        <p>Quality sleep is the foundation of good health. Simple habits to help you fall asleep faster and wake up refreshed.</p>
+                        <span class="custom-btn">Read More</span>
+                    </div>
+                </a>
+                <a href="stay-hydrated.html" class="gallery-card text-decoration-none">
+                    <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" alt="Stay hydrated" loading="lazy" decoding="async">
+                    <div class="gallery-card-content">
+                        <h5>Stay Hydrated: Why Water Is Your Best Friend</h5>
+                        <p>Hydration affects your energy, focus, and overall health. Easy ways to drink more water and feel your best.</p>
+                        <span class="custom-btn">Read More</span>
+                    </div>
                 </a>
             </div>
-
-            <!-- Card 2 -->
-            <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="blog/move-your-body.html" class="feature-card d-block rounded-pill overflow-hidden">
-                <div class="ratio" style="--bs-aspect-ratio: 150%;">
-                    <img
-                    src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg"
-                    class="img-cover"
-                    alt="Exercise and movement"
-                    loading="lazy"
-                    />
-                </div>
-                </a>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="col-10 col-sm-6 col-md-4 col-lg-3">
-                <a href="blog/eating-well-balanced-diet.html" class="feature-card d-block rounded-pill overflow-hidden">
-                <div class="ratio" style="--bs-aspect-ratio: 150%;">
-                    <img
-                    src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg"
-                    class="img-cover"
-                    alt="Healthy diet and cooking"
-                    loading="lazy"
-                    />
-                </div>
-                </a>
-            </div>
-            </div>
         </div>
-    </section>
 
-    <!-- Link cards section -->
-    <section class="links-section position-relative">
-        <div class="container">
-            <div class="links-section-header">
-                <h2 class="section-title ms-3">Latest Posts</h2>
-                <a href="blogs.html" class="view-all-btn">View all</a>
-            </div>
-        </div>
-        <div class="container pt-4 pb-4">
-            <div class="row g-5 justify-content-center">
-                <!-- Card 1 -->
-                <div class="col-10 col-sm-6 col-md-4">
-                    <a href="blog/gut-health-101.html" class="card link-card h-100 text-decoration-none">
-                        <div class="ratio ratio-16x9">
-                        <img
-                            src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg"
-                            class="card-img-top img-cover"
-                            alt="Gut health"
-                            loading="lazy"
-                        />
-                        </div>
-                        <div class="card-body">
-                        <h3 class="h6 mb-1 text-body">Gut Health 101: Why Your Gut Matters</h3>
-                        <p class="mb-0 text-body-secondary">Your gut affects your mood, immunity, and energy. Learn how to support a healthy microbiome with simple, everyday habits.</p>
-                        </div>
-                    </a>
-                </div>
-        
-                <!-- Card 2 -->
-                <div class="col-10 col-sm-6 col-md-4">
-                    <a href="blog/move-your-body.html" class="card link-card h-100 text-decoration-none">
-                        <div class="ratio ratio-16x9">
-                        <img
-                            src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg"
-                            class="card-img-top img-cover"
-                            alt="Exercise and wellness"
-                            loading="lazy"
-                        />
-                        </div>
-                        <div class="card-body">
-                        <h3 class="h6 mb-1 text-body">Move Your Body: Simple Exercises for Everyday Wellness</h3>
-                        <p class="mb-0 text-body-secondary">You don’t need a gym to stay active. Discover easy ways to move more and feel stronger every day.</p>
-                        </div>
-                    </a>
-                </div>
-        
-                <!-- Card 3 -->
-                <div class="col-10 col-sm-6 col-md-4">
-                    <a href="blog/eating-well-balanced-diet.html" class="card link-card h-100 text-decoration-none">
-                        <div class="ratio ratio-16x9">
-                        <img
-                            src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg"
-                            class="card-img-top img-cover"
-                            alt="Healthy diet"
-                            loading="lazy"
-                        />
-                        </div>
-                        <div class="card-body">
-                        <h3 class="h6 mb-1 text-body">Eating Well: Building a Balanced Diet That Works</h3>
-                        <p class="mb-0 text-body-secondary">Good nutrition doesn’t have to be complicated. Practical tips for building a balanced diet that fits your life.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="scroll-section">
+        <div class="scroll-section">
         <div class="container pt-3">
             <h2 class="section-title ms-3 mb-0">Follow us @Modern Body Balance</h2>
         </div>
         <hr class="my-0">
         <div class="scroll-wrapper">
+            <div class="scroll-fade-left" aria-hidden="true"></div>
+            <div class="scroll-fade-right" aria-hidden="true"></div>
             <div class="scroll-container" id="scrollContainer">
             <div class="scroll-track" id="scrollTrack">
-                <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" alt="" width="400" height="400" loading="lazy">
-                <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="" width="400" height="400" loading="lazy">
-                <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" alt="" width="400" height="400" loading="lazy">
-                <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" alt="" width="400" height="400" loading="lazy">
-                <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" alt="" width="400" height="400" loading="lazy">
+                <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
+                <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" alt="" width="200" height="200" loading="lazy" decoding="async">
             </div>
             </div>
         </div>
     </div>
       
       
-    <section class="three-col-section" style="display: none;">
-        <div class="col col1">
-          <p>Column 1</p>
-        </div>
-        <div class="col col2">
-          <p>Column 2</p>
-        </div>
-        <div class="col col3">
-          <p>Column 3</p>
-        </div>
-    </section>
-      
-
-
+    </div>
+    </main>
 </body>
 </html>

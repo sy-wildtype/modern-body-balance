@@ -35,6 +35,7 @@ function insertHeadElements(pageType = 'root') {
 
 
 // Load stylesheets and show content when ready
+var contentRevealedByStylesheets = false;
 function loadStylesheets(assetPath) {
     let stylesheetsLoaded = 0;
     const totalStylesheets = 2;
@@ -43,6 +44,7 @@ function loadStylesheets(assetPath) {
     function showContent() {
         if (!contentShown) {
             contentShown = true;
+            contentRevealedByStylesheets = true;
             document.body.style.visibility = 'visible';
             document.body.style.opacity = '1';
         }
@@ -167,9 +169,44 @@ function insertFooter(pageType = 'root') {
 })();
 
 
+// Lazy images load natively; no fade animation to avoid glitchy appearance
+function initLazyImageReveal() {
+    // Intentionally empty: we keep native lazy loading only, no opacity transition
+}
+
+// Reveal body (FOUC fallback for pages that have stylesheet in head and don't use loadStylesheets)
+function revealBody() {
+    if (contentRevealedByStylesheets) return;
+    document.body.style.visibility = 'visible';
+    document.body.style.opacity = '1';
+}
+
+// Auto-scroll the "Follow us" circle track (infinite loop, synced to display to avoid jump)
+function initFollowUsAutoScroll() {
+    var container = document.getElementById('scrollContainer');
+    if (!container) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var step = 0.35;
+    function tick() {
+        var half = container.scrollWidth / 2;
+        if (half > 0) {
+            container.scrollLeft += step;
+            if (container.scrollLeft >= half) {
+                container.scrollLeft -= half;
+            }
+        }
+        requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+}
+
 // Wait for DOM to be fully loaded for additional functionality
 document.addEventListener('DOMContentLoaded', function() {
-    
+    revealBody();
+    initLazyImageReveal();
+    initFollowUsAutoScroll();
+
     // Smooth scrolling for internal links
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {

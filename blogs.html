@@ -5,87 +5,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Modern Body Balance</title>
   <meta name="description" content="All articles and posts from Modern Body Balance." />
+  <!-- Prevent FOUC -->
+  <style>
+    body { visibility: hidden; opacity: 0; transition: opacity 0.3s ease; }
+    .no-js body { visibility: visible; opacity: 1; }
+  </style>
+  <script>document.documentElement.className += ' js';</script>
   <link rel="stylesheet" href="assets/css/style.css" />
   <script src="assets/js/main.js" defer></script>
   <style>
     :root { --header-height: 124px; }
     body { padding-top: var(--header-height); }
-    main.blog-page-main {
-      max-width: none;
-      margin: 0;
-      padding: 0;
-    }
-    .blogs-page-full.links-section { min-height: calc(100vh - var(--header-height)); }
-    .blogs-grid-wrap {
-      max-width: 1140px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    main.blog-page-main { max-width: 1200px; margin: 0 auto; padding: 0 1rem 2rem; }
   </style>
 </head>
 <body>
   <main class="blog-page-main">
-    <section class="links-section position-relative blogs-page-full">
-      <div class="container-fluid px-4 pt-4 pb-4 blogs-grid-wrap">
-        <div class="row g-5 justify-content-start">
-          <div class="col-10 col-sm-6 col-md-4">
-            <a href="blog/gut-health-101.html" class="card link-card h-100 text-decoration-none">
-              <div class="ratio ratio-16x9">
-                <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" class="card-img-top img-cover" alt="Gut health" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <h3 class="h6 mb-1 text-body">Gut Health 101: Why Your Gut Matters</h3>
-                <p class="mb-0 text-body-secondary">Your gut affects your mood, immunity, and energy. Learn how to support a healthy microbiome with simple, everyday habits.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-10 col-sm-6 col-md-4">
-            <a href="blog/move-your-body.html" class="card link-card h-100 text-decoration-none">
-              <div class="ratio ratio-16x9">
-                <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" class="card-img-top img-cover" alt="Exercise and wellness" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <h3 class="h6 mb-1 text-body">Move Your Body: Simple Exercises for Everyday Wellness</h3>
-                <p class="mb-0 text-body-secondary">You don’t need a gym to stay active. Discover easy ways to move more and feel stronger every day.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-10 col-sm-6 col-md-4">
-            <a href="blog/eating-well-balanced-diet.html" class="card link-card h-100 text-decoration-none">
-              <div class="ratio ratio-16x9">
-                <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" class="card-img-top img-cover" alt="Healthy diet" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <h3 class="h6 mb-1 text-body">Eating Well: Building a Balanced Diet That Works</h3>
-                <p class="mb-0 text-body-secondary">Good nutrition doesn’t have to be complicated. Practical tips for building a balanced diet that fits your life.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-10 col-sm-6 col-md-4">
-            <a href="sleep-better.html" class="card link-card h-100 text-decoration-none">
-              <div class="ratio ratio-16x9">
-                <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" class="card-img-top img-cover" alt="Sleep and rest" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <h3 class="h6 mb-1 text-body">Sleep Better: Tips for Restful Nights</h3>
-                <p class="mb-0 text-body-secondary">Quality sleep is the foundation of good health. Simple habits to help you fall asleep faster and wake up refreshed.</p>
-              </div>
-            </a>
-          </div>
-          <div class="col-10 col-sm-6 col-md-4">
-            <a href="stay-hydrated.html" class="card link-card h-100 text-decoration-none">
-              <div class="ratio ratio-16x9">
-                <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" class="card-img-top img-cover" alt="Stay hydrated" loading="lazy" />
-              </div>
-              <div class="card-body">
-                <h3 class="h6 mb-1 text-body">Stay Hydrated: Why Water Is Your Best Friend</h3>
-                <p class="mb-0 text-body-secondary">Hydration affects your energy, focus, and overall health. Easy ways to drink more water and feel your best.</p>
-              </div>
-            </a>
-          </div>
-        </div>
+    <section class="hero-section py-3">
+      <div class="container">
+        <h1 class="text-center mb-5" style="font-size: 2rem; color: #005F02; font-weight: 700;">All Articles</h1>
       </div>
     </section>
+    <div class="container my-4">
+      <div class="articles-gallery">
+        <a href="blog/gut-health-101.html" class="gallery-card text-decoration-none">
+          <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="Gut health" loading="lazy" decoding="async" />
+          <div class="gallery-card-content">
+            <h5>Gut Health 101: Why Your Gut Matters</h5>
+            <p>Your gut affects your mood, immunity, and energy. Learn how to support a healthy microbiome with simple, everyday habits.</p>
+            <span class="custom-btn">Read More</span>
+          </div>
+        </a>
+        <a href="blog/move-your-body.html" class="gallery-card text-decoration-none">
+          <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" alt="Exercise and wellness" loading="lazy" decoding="async" />
+          <div class="gallery-card-content">
+            <h5>Move Your Body: Simple Exercises for Everyday Wellness</h5>
+            <p>You don’t need a gym to stay active. Discover easy ways to move more and feel stronger every day.</p>
+            <span class="custom-btn">Read More</span>
+          </div>
+        </a>
+        <a href="blog/eating-well-balanced-diet.html" class="gallery-card text-decoration-none">
+          <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" alt="Healthy diet" loading="lazy" decoding="async" />
+          <div class="gallery-card-content">
+            <h5>Eating Well: Building a Balanced Diet That Works</h5>
+            <p>Good nutrition doesn’t have to be complicated. Practical tips for building a balanced diet that fits your life.</p>
+            <span class="custom-btn">Read More</span>
+          </div>
+        </a>
+        <a href="sleep-better.html" class="gallery-card text-decoration-none">
+          <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" alt="Sleep and rest" loading="lazy" decoding="async" />
+          <div class="gallery-card-content">
+            <h5>Sleep Better: Tips for Restful Nights</h5>
+            <p>Quality sleep is the foundation of good health. Simple habits to help you fall asleep faster and wake up refreshed.</p>
+            <span class="custom-btn">Read More</span>
+          </div>
+        </a>
+        <a href="stay-hydrated.html" class="gallery-card text-decoration-none">
+          <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" alt="Stay hydrated" loading="lazy" decoding="async" />
+          <div class="gallery-card-content">
+            <h5>Stay Hydrated: Why Water Is Your Best Friend</h5>
+            <p>Hydration affects your energy, focus, and overall health. Easy ways to drink more water and feel your best.</p>
+            <span class="custom-btn">Read More</span>
+          </div>
+        </a>
+      </div>
+    </div>
   </main>
 </body>
 </html>

@@ -6,9 +6,11 @@
   <meta name="description" content="Quality sleep is the foundation of good health. Simple habits to help you fall asleep faster and wake up refreshed.">
   <meta name="keywords" content="sleep, rest, healthy sleep habits, wellness, healthy lifestyle, better sleep">
   <title>Sleep Better: Tips for Restful Nights | Modern Body Balance</title>
-
-  <script src="assets/js/main.js" defer></script>
-
+  <!-- Prevent FOUC -->
+  <style>
+    body { visibility: hidden; opacity: 0; transition: opacity 0.3s ease; }
+    .no-js body { visibility: visible; opacity: 1; }
+  </style>
   <script>document.documentElement.className += ' js';</script>
   <script src="https://static.runconverge.com/pixels/rD_1RV.js" async></script>
   <script>
@@ -16,7 +18,7 @@
   cvg({method:"track",eventName:"$page_load"});
   cvg({ method: "link_domain", domain: "pacagen.com" });
   </script>
-
+  <script src="assets/js/main.js" defer></script>
   <style>
     :root {
       --header-height: 124px;
@@ -304,73 +306,55 @@
 
 </head>
 <body>
-
+  <section class="breadcrumb-section">
+    <div class="container">
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blogs.html">All Articles</a></li>
+          <li class="active">Sleep Better: Tips for Restful Nights</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
   <div class="page-wrapper">
-    <!-- Title block -->
-    <section class="hero-block">
-      <hr class="line" />
-      <h2 class="title">Breathe Easy, Live Better: Meet Pacagen’s Game-Changing Home Mist Spray</h2>
-      <p class="title-date">Updated Aug 29, 2025</p>
-      <p><i>Because nothing should come between you and feeling good at home — not even hidden dust.</i></p>
-    </section>
-
-
-    <!-- Main content: clean Bootstrap grid -->
-    <div class="container px-0">
-      <div class="row g-4">
-        <div class="col-12 col-lg-8">
-          <div class="row">
-            <!-- First row: image -->
-            <div class="col-12 d-flex align-items-center justify-content-start mb-2">
-              <img src="assets/images/Editor1.png"
-                   alt="Description"
-                   class="img-fluid rounded-circle editor-photo me-2">
-              <p class="mb-0">Samantha Reed</p>
-            </div>
-          
-            <!-- Second row: text -->
-            <div class="col-12">
-              <p><b>About the Editor:</b>
-                Samantha Reed is a lifestyle writer and home enthusiast based in Brooklyn. She has spent the last five years testing products for cleaner, calmer, and cozier living. 
-              </p>
-            </div>
-            
-          </div>
-          <br>
-          <hr class="line">
-          <br>
-          <!-- Socials + Save -->
-          <div class="actions">
-            <div class="socials" aria-label="Social media">
-              <a class="icon" href="#" target="_blank" rel="noopener" aria-label="X">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 3H21l-6.6 7.6L21.7 21h-5.2l-4-5-4.5 5H3.3l7.2-8-7-8h5.2l3.7 4.5L18.9 3zM16 19h1.1L8.1 5H7L16 19z"/></svg>
-              </a>
-              <a class="icon" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/></svg>
-              </a>
-              <a class="icon" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 7.9H3.56V21h3.38V7.9zM5.25 3a2 2 0 1 0 .02 4 2 2 0 0 0-.02-4zM20.44 21h-3.38v-6.7c0-1.6-.03-3.65-2.22-3.65-2.22 0-2.56 1.73-2.56 3.53V21H8.9V7.9h3.24v1.78h.05a3.55 3.55 0 0 1 3.2-1.76c3.42 0 4.05 2.25 4.05 5.17V21z"/></svg>
-              </a>
-              <a class="icon" href="#" aria-label="Email">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
-              </a>
-            </div>
-
-            <button id="copyBtn" class="btn-save" type="button">Copy Link!</button>
-            <div id="popup" class="popup">URL copied to clipboard!</div>
-          </div>
-          <div class="text-content">
-            <h2>Why Sleep Matters</h2>
+    <div class="actions">
+      <div class="socials" aria-label="Social media">
+        <a class="icon" href="#" target="_blank" rel="noopener" aria-label="X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 3H21l-6.6 7.6L21.7 21h-5.2l-4-5-4.5 5H3.3l7.2-8-7-8h5.2l3.7 4.5L18.9 3zM16 19h1.1L8.1 5H7L16 19z"/></svg>
+        </a>
+        <a class="icon" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/></svg>
+        </a>
+        <a class="icon" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 7.9H3.56V21h3.38V7.9zM5.25 3a2 2 0 1 0 .02 4 2 2 0 0 0-.02-4zM20.44 21h-3.38v-6.7c0-1.6-.03-3.65-2.22-3.65-2.22 0-2.56 1.73-2.56 3.53V21H8.9V7.9h3.24v1.78h.05a3.55 3.55 0 0 1 3.2-1.76c3.42 0 4.05 2.25 4.05 5.17V21z"/></svg>
+        </a>
+        <a class="icon" href="#" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+      <button id="copyBtn" class="btn-save" type="button">Copy Link!</button>
+      <div id="popup" class="popup">URL copied to clipboard!</div>
+    </div>
+    <div class="text-content">
+      <p dir="ltr">Quality sleep is the foundation of good health. It supports your mood, immune system, and energy. Here are simple habits to help you fall asleep faster and wake up refreshed.</p>
+      <h2 dir="ltr">Why Sleep Matters</h2>
             <p>Quality sleep is the foundation of good health. It supports your mood, immune system, and energy. Here are simple habits to help you fall asleep faster and wake up refreshed.</p>
+            <p>When you're well rested, you think more clearly, handle stress better, and give your body time to repair and restore. Chronic poor sleep is linked to a higher risk of health issues, so improving your sleep is one of the most powerful steps you can take for long-term wellness.</p>
             <div class="d-flex justify-content-center">
-              <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" class="img-fluid" alt="Restful morning">
+              <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" class="img-fluid" alt="Restful morning" loading="lazy" decoding="async">
             </div>
             <h2>Stick to a Schedule</h2>
             <p>Going to bed and waking up around the same time each day helps regulate your body clock. Even on weekends, try to keep the rhythm consistent.</p>
+            <p>A shift of more than an hour on your days off can throw your rhythm off and make Sunday night harder. If you need to catch up, aim for a slightly earlier bedtime rather than sleeping in too late. Over time, a consistent schedule makes falling asleep and waking up easier.</p>
             <h2>Create a Calm Environment</h2>
             <p>Keep your bedroom cool, dark, and quiet. Limit screens before bed and try reading or gentle stretching instead.</p>
+            <p>Use blackout curtains or an eye mask if light is an issue, and consider earplugs or a white-noise machine if noise disturbs you. Reserve your bed for sleep (and intimacy) so your brain learns to associate it with rest. If you can't sleep after 20 minutes, get up and do something calm until you feel drowsy, then try again.</p>
             <h2>Wind Down Before Bed</h2>
             <p>Give yourself 20–30 minutes to relax: dim the lights, avoid caffeine late in the day, and try deep breathing or a few minutes of quiet.</p>
+            <p>Caffeine can stay in your system for several hours, so cut it off by mid-afternoon if you're sensitive. Alcohol might help you doze off but often disrupts sleep later in the night. A light snack is fine, but heavy or spicy meals close to bedtime can interfere with sleep. Find a wind-down routine that signals to your body that it's time to rest—whether that's reading, stretching, or listening to calm music.</p>
+            <h2>When Sleep Still Feels Elusive</h2>
+            <p>If you've improved your habits and still struggle with sleep, consider keeping a simple sleep log: what time you went to bed, how long it took to fall asleep, how often you woke up, and how you felt in the morning. That information can help you or a healthcare provider spot patterns. Persistent insomnia or severe daytime fatigue may warrant a conversation with your doctor to rule out sleep disorders or other causes.</p>
             <h2>Small Changes Add Up</h2>
             <p>You don't need to change everything at once. Pick one or two habits and build from there. Your body will thank you.</p>
             <div>
@@ -378,7 +362,7 @@
               <h2>Meet your guide</h2>
               <div class="row">
                 <div class="col-12 d-flex align-items-center justify-content-start mb-2">
-                  <img src="assets/images/Editor1.png" alt="Editor" class="img-fluid rounded-circle editor-photo me-2">
+                  <img src="assets/images/Editor1.png" alt="Editor" class="img-fluid rounded-circle editor-photo me-2" loading="lazy" decoding="async">
                   <p class="mb-0">Samantha Reed</p>
                 </div>
                 <div class="col-12">
@@ -423,7 +407,8 @@
         <img id="galleryHeroImg"
             src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600"
             alt="Dog running on a beach"
-            loading="eager" />
+            loading="lazy"
+            decoding="async" />
         <figcaption id="galleryCaption" class="gallery-caption">
             A happy pup sprinting on the beach at sunset.
         </figcaption>
@@ -443,7 +428,7 @@
                 data-caption="A happy pup sprinting on the beach at sunset."
                 type="button">
             <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400"
-                alt="Thumbnail: dog on beach" loading="lazy" />
+                alt="Thumbnail: dog on beach" loading="lazy" decoding="async" />
         </button>
     
         <button class="thumb" role="option" aria-selected="false"
@@ -452,7 +437,7 @@
                 data-caption="Close-up portrait showing gentle eyes and soft fur."
                 type="button">
             <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=400"
-                alt="Thumbnail: dog portrait" loading="lazy" />
+                alt="Thumbnail: dog portrait" loading="lazy" decoding="async" />
         </button>
     
         <button class="thumb" role="option" aria-selected="false"
@@ -461,7 +446,7 @@
                 data-caption="Bandana style in the park—iconic LA dog fashion."
                 type="button">
             <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=400"
-                alt="Thumbnail: dog with bandana" loading="lazy" />
+                alt="Thumbnail: dog with bandana" loading="lazy" decoding="async" />
         </button>
     
         <button class="thumb" role="option" aria-selected="false"
@@ -470,7 +455,7 @@
                 data-caption="Playtime! Fetch in the backyard before dinner."
                 type="button">
             <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=400"
-                alt="Thumbnail: dog with ball" loading="lazy" />
+                alt="Thumbnail: dog with ball" loading="lazy" decoding="async" />
         </button>
         </div>
     </section>
