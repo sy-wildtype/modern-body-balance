@@ -1,75 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Modern Body Balance</title>
-  <meta name="description" content="All articles and posts from Modern Body Balance." />
-  <!-- Prevent FOUC -->
-  <style>
-    body { visibility: hidden; opacity: 0; transition: opacity 0.3s ease; }
-    .no-js body { visibility: visible; opacity: 1; }
-  </style>
-  <script>document.documentElement.className += ' js';</script>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script src="assets/js/main.js" defer></script>
-  <style>
-    :root { --header-height: 124px; }
-    body { padding-top: var(--header-height); }
-    main.blog-page-main { max-width: 1200px; margin: 0 auto; padding: 0 1rem 2rem; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse all wellness and lifestyle articles from Modern Body Balance. Discover tips, routines, and solutions for holistic health.">
+    <meta name="keywords" content="wellness articles, health blog, nutrition tips, fitness articles, modern body balance, holistic wellness">
+    <title>All Articles | Modern Body Balance</title>
+
+    <!-- Open Graph / social share -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="All Articles | Modern Body Balance">
+    <meta property="og:description" content="Browse all wellness and lifestyle articles from Modern Body Balance. Discover tips, routines, and solutions for holistic health.">
+    <meta property="og:image" content="/assets/images/mbb-hero.jpg">
+    <meta property="og:url" content="/blogs.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All Articles | Modern Body Balance">
+    <meta name="twitter:description" content="Browse all wellness and lifestyle articles from Modern Body Balance. Discover tips, routines, and solutions for holistic health.">
+    <meta name="twitter:image" content="/assets/images/mbb-hero.jpg">
+
+    <!-- Favicon (Modern Body Balance) -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon/android-chrome-512x512.png">
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+    <meta name="theme-color" content="#C9A8B8">
+    <meta name="msapplication-TileColor" content="#C9A8B8">
+
+    <!-- Prevent FOUC (Flash of Unstyled Content) -->
+    <style>
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .no-js body {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <script>document.documentElement.className += ' js';</script>
+    <script src="https://static.runconverge.com/pixels/AlO7bK.js" async></script>
+    <script>
+        window.cvg || (cvg = function () { cvg.process ? cvg.process.apply(cvg, arguments) : cvg.queue.push(arguments) }, cvg.queue = []);
+        cvg({ method: "track", eventName: "$page_load" });
+        cvg({ method: "link_domain", domain: "pacagen.com" });
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+    <!-- Load main JavaScript -->
+    <script src="assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <main class="blog-page-main">
-    <section class="hero-section py-3">
-      <div class="container">
-        <h1 class="text-center mb-5" style="font-size: 2rem; color: #005F02; font-weight: 700;">All Articles</h1>
-      </div>
-    </section>
-    <div class="container my-4">
-      <div class="articles-gallery">
-        <a href="blog/gut-health-101.html" class="gallery-card text-decoration-none">
-          <img src="assets/images/carousel/healthy-fruit-bowl-with-granola-banana-berries-2026-01-11-10-53-59-utc.jpg" alt="Gut health" loading="lazy" decoding="async" />
-          <div class="gallery-card-content">
-            <h5>Gut Health 101: Why Your Gut Matters</h5>
-            <p>Your gut affects your mood, immunity, and energy. Learn how to support a healthy microbiome with simple, everyday habits.</p>
-            <span class="custom-btn">Read More</span>
-          </div>
-        </a>
-        <a href="blog/move-your-body.html" class="gallery-card text-decoration-none">
-          <img src="assets/images/carousel/sporty-blonde-woman-in-sportswear-sits-on-yoga-mat-2026-01-08-01-50-50-utc.jpg" alt="Exercise and wellness" loading="lazy" decoding="async" />
-          <div class="gallery-card-content">
-            <h5>Move Your Body: Simple Exercises for Everyday Wellness</h5>
-            <p>You don’t need a gym to stay active. Discover easy ways to move more and feel stronger every day.</p>
-            <span class="custom-btn">Read More</span>
-          </div>
-        </a>
-        <a href="blog/eating-well-balanced-diet.html" class="gallery-card text-decoration-none">
-          <img src="assets/images/carousel/sportive-woman-cooking-healthy-lunch-2026-01-08-07-14-30-utc.jpg" alt="Healthy diet" loading="lazy" decoding="async" />
-          <div class="gallery-card-content">
-            <h5>Eating Well: Building a Balanced Diet That Works</h5>
-            <p>Good nutrition doesn’t have to be complicated. Practical tips for building a balanced diet that fits your life.</p>
-            <span class="custom-btn">Read More</span>
-          </div>
-        </a>
-        <a href="sleep-better.html" class="gallery-card text-decoration-none">
-          <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" alt="Sleep and rest" loading="lazy" decoding="async" />
-          <div class="gallery-card-content">
-            <h5>Sleep Better: Tips for Restful Nights</h5>
-            <p>Quality sleep is the foundation of good health. Simple habits to help you fall asleep faster and wake up refreshed.</p>
-            <span class="custom-btn">Read More</span>
-          </div>
-        </a>
-        <a href="stay-hydrated.html" class="gallery-card text-decoration-none">
-          <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" alt="Stay hydrated" loading="lazy" decoding="async" />
-          <div class="gallery-card-content">
-            <h5>Stay Hydrated: Why Water Is Your Best Friend</h5>
-            <p>Hydration affects your energy, focus, and overall health. Easy ways to drink more water and feel your best.</p>
-            <span class="custom-btn">Read More</span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </main>
+    <main>
+        <section class="hero-section py-3">
+            <div class="container">
+                <h1 class="text-center mb-5">All Blogs</h1>
+            </div>
+        </section>
+
+        <!-- Articles Gallery -->
+        <div class="container my-5">
+            <!-- Category Filters -->
+            <div class="category-filters mb-4">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="routine">Nutrition</button>
+                <button class="filter-btn" data-category="wellness">Wellness</button>
+                <button class="filter-btn" data-category="product">Fitness</button>
+            </div>
+            <div class="articles-gallery">
+                <div class="gallery-card" data-category="routine">
+                    <img src="assets/images/article-1.jpg" alt="Eating a well-balanced diet">
+                    <div class="gallery-card-content">
+                        <span class="article-category category-routine">NUTRITION</span>
+                        <h5>Eating a Well-Balanced Diet for Optimal Health</h5>
+                        <p>Discover how to nourish your body with the right balance of nutrients for sustained energy and vitality.</p>
+                        <a href="eating-well-balanced-diet.html" class="read-more-btn">READ MORE »</a>
+                    </div>
+                </div>
+                <div class="gallery-card" data-category="product">
+                    <img src="assets/images/article-2.jpg" alt="Move your body">
+                    <div class="gallery-card-content">
+                        <span class="article-category category-product">FITNESS</span>
+                        <h5>Move Your Body: Simple Ways to Stay Active Daily</h5>
+                        <p>Learn practical strategies to incorporate more movement into your day, no gym membership required.</p>
+                        <a href="move-your-body.html" class="read-more-btn">READ MORE »</a>
+                    </div>
+                </div>
+                <div class="gallery-card" data-category="wellness">
+                    <img src="assets/images/article-3.jpg" alt="Stay hydrated">
+                    <div class="gallery-card-content">
+                        <span class="article-category category-wellness">WELLNESS</span>
+                        <h5>Stay Hydrated: The Foundation of Body Balance</h5>
+                        <p>Understand the crucial role of hydration in maintaining your body's natural balance and function.</p>
+                        <a href="stay-hydrated.html" class="read-more-btn">READ MORE »</a>
+                    </div>
+                </div>
+                <div class="gallery-card" data-category="wellness">
+                    <img src="assets/images/article-4.jpg" alt="Gut health">
+                    <div class="gallery-card-content">
+                        <span class="article-category category-wellness">WELLNESS</span>
+                        <h5>Gut Health 101: Your Second Brain</h5>
+                        <p>Explore the connection between gut health and overall wellness, plus tips to support your microbiome.</p>
+                        <a href="gut-health-101.html" class="read-more-btn">READ MORE »</a>
+                    </div>
+                </div>
+                <div class="gallery-card" data-category="routine">
+                    <img src="assets/images/article-5.jpg" alt="Better sleep">
+                    <div class="gallery-card-content">
+                        <span class="article-category category-routine">ROUTINE</span>
+                        <h5>Sleep Better: Rest as a Pillar of Wellness</h5>
+                        <p>Discover how quality sleep supports your body's natural balance and recovery processes.</p>
+                        <a href="sleep-better.html" class="read-more-btn">READ MORE »</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // Category Filter Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    galleryCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>

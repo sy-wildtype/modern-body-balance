@@ -1,541 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Quality sleep is the foundation of good health. Simple habits to help you fall asleep faster and wake up refreshed.">
-  <meta name="keywords" content="sleep, rest, healthy sleep habits, wellness, healthy lifestyle, better sleep">
-  <title>Sleep Better: Tips for Restful Nights | Modern Body Balance</title>
-  <!-- Prevent FOUC -->
-  <style>
-    body { visibility: hidden; opacity: 0; transition: opacity 0.3s ease; }
-    .no-js body { visibility: visible; opacity: 1; }
-  </style>
-  <script>document.documentElement.className += ' js';</script>
-  <script src="https://static.runconverge.com/pixels/rD_1RV.js" async></script>
-  <script>
-  window.cvg||(cvg=function(){cvg.process?cvg.process.apply(cvg,arguments):cvg.queue.push(arguments)},cvg.queue=[]);
-  cvg({method:"track",eventName:"$page_load"});
-  cvg({ method: "link_domain", domain: "pacagen.com" });
-  </script>
-  <script src="assets/js/main.js" defer></script>
-  <style>
-    :root {
-      --header-height: 124px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="How your morning routine affects your sleep at night. Discover morning habits that set you up for better sleep and more energy.">
+    <meta name="keywords"
+        content="morning routine, sleep schedule, circadian rhythm, morning habits, better sleep, wake up routine, sleep cycle, morning light">
+    <title>Sleep Better: Rest as a Pillar of Wellness | Modern Body Balance</title>
 
-    body {
-      overflow-x: hidden; /* prevents horizontal scrollbar */
-      padding-top: var(--header-height); /* keep content below fixed header */
-      line-height: 1.5;
-      font-family: "Times New Roman";
-    }
+    <!-- Open Graph / social share -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Sleep Better: Rest as a Pillar of Wellness | Modern Body Balance">
+    <meta property="og:description" content="Discover how quality sleep supports your body's natural balance and recovery processes.">
+    <meta property="og:image" content="/assets/images/article-5.jpg">
+    <meta property="og:url" content="/sleep-better.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sleep Better: Rest as a Pillar of Wellness | Modern Body Balance">
+    <meta name="twitter:description" content="Discover how quality sleep supports your body's natural balance and recovery processes.">
+    <meta name="twitter:image" content="/assets/images/article-5.jpg">
 
-    /* Page stack */
-    .page-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;  /* left align */
-      gap: 24px;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
-    }
-
-    .editor-photo {
-      width: clamp(50px, 8vw, 80px);
-      height: clamp(50px, 8vw, 80px);
-      object-fit: cover;
-    }
-
-    /* Header block (title + date + decorative line) */
-    .hero-block {
-      width: 70%;
-    }
-
-    .line {
-      /* line starts at 30% of viewport, ends at 60% (so width = 30vw) */
-      margin: 0;                      /* no extra top gap */
-      height: 0;
-      border: none;
-      border-top: 4px solid #000000; 
-      width: 100%;
-      opacity: 1;
-    }
-
-    .title {
-      font-weight: 700;
-      font-size: 45px;
-      margin: 16px 0 0 0;          /* left edge aligned with the line */
-      font-family: "Poppins", system-ui, sans-serif;
-    }
-
-    .title-date {
-      color: #747474;
-      font-size: 18px;
-      margin: 4px 0 0 0;           /* aligned with title & line */
-    }
-
-    .full-width-image {
-        width: 100%;
-    }
-    .full-width-image img{
-        width: 100%;
-    }
+    <!-- Head components (FOUC prevention, tracking init) -->
+    <script src="assets/js/head-components.js"></script>
     
-    /* Actions row */
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .socials {
-      display: flex;
-      gap: 10px;
-    }
-
-    .icon {
-        width: clamp(2rem, 4vw, 2.5rem);
-        height: clamp(2rem, 4vw, 2.5rem);
-      display: inline-grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #111;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
-    }
-    .icon svg { width: 50%; height: 50%; fill: currentColor; }
-    .icon:hover { transform: translateY(-1px); background: #222; box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
-
-    .btn-save {
-      padding: 10px 18px;
-      border: none;
-      border-radius: 9999px;
-      background: #969697;
-      color: #fff;
-      font-weight: 700;
-      letter-spacing: .02em;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(86, 86, 87, 0.35);
-      transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    }
-    .btn-save:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(94, 94, 94, 0.4); filter: brightness(1.03); }
-
-    /* Click (active) effect */
-    .btn-save:active {
-      transform: scale(0.96);  /* slightly shrink */
-      box-shadow: 0 1px 4px rgba(50, 50, 50, 0.3); /* smaller shadow */
-      filter: brightness(0.95); /* dim a little */
-    }
-
-    /* Section with thin line + title */
-    .text-link-section {
-      margin-top: 24px;
-    }
-
-    .section-line {
-      width: 30vw;
-      height: 0;
-      border: none;
-      border-top: 2px solid #000;
-    }
-
-    .section-title {
-      font-weight: 700;
-      font-size: 30px;
-      margin: 12px 0 0 0;       /* align with line */
-      font-family: "Poppins", system-ui, sans-serif;
-    }
-
-    .text-link-section a {
-        display: block;        /* stack vertically */
-        margin-bottom: 8px;    /* space between links */
-        font-weight: bold;
-        font-size: 20px;
-        color: #000000;
-        text-decoration: none;
-    }
-
-    /* Content tweaks */
-    .text-content {
-      white-space: pre-line;       /* keep your line breaks readable */
-    }
-
-    .text-content h2 {
-      font-weight: bold; 
-    }
-
-    .text-content p {
-      margin-bottom: 0;
-    }
-
-    .text-content ul {
-
-      margin-top: 0px;     /* space before the list */
-      margin-bottom: 0px;  /* space after the list */
-      padding-left: 20px;  /* indentation of bullets */
-      line-height: 1;
-    }
-
-    .text-content li {
-      margin-bottom: 4px;  /* space between list items */
-    }
-
-    /* Responsive: on small screens, don't force 30vw alignment */
-    @media (max-width: 768px) {
-      .line,
-      .title,
-      .title-date,
-      .section-line,
-      .section-title { margin-left: 0; width: 100%; }
-      .line { width: 100%; }
-      .section-line { width: 100%; }
-      .title {
-          font-size: 32px;
-        }
-      .hero-block {
-        width: 100%;
-      }
-      .text-content {
-        font-size: 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .title {
-        font-size: 24px;
-      }
-    }
-
-    /* === Image Gallery Styles === */
-    .image-gallery {
-    width: 100%;            /* full width of .page-wrapper */
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    }
-
-    .gallery-hero {
-    margin: 0;
-    }
-
-    .gallery-hero img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
-    object-fit: cover;
-    /* Optional nice aspect on tall screens; remove if you want natural height */
-    aspect-ratio: 16 / 9;
-    }
-
-    .gallery-caption {
-    margin-top: 8px;
-    color: #555;
-    font-size: 0.95rem;
-    }
-
-    .gallery-text {
-    margin: 0 0 4px 0;
-    }
-
-    /* Center the thumbnail row */
-    .gallery-thumbs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;   /* <-- center the small images */
-    }
-
-    /* Thumbs */
-    .thumb {
-    padding: 0;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-    transition: border-color .15s ease, transform .12s ease, box-shadow .15s ease;
-    }
-
-    .thumb img {
-    display: block;
-    width: 110px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 8px;
-
-    /* Greyscale by default, animate to color */
-    filter: grayscale(100%);
-    transition: filter .25s ease, transform .12s ease, opacity .2s ease;
-    opacity: 0.9; /* slight dim by default */
-    }
-
-    /* Hover gives a hint even when not selected */
-    .thumb:hover img {
-    filter: grayscale(40%);
-    opacity: 1;
-    transform: translateY(-1px);
-    }
-
-    /* Selected state: color + focus ring */
-    .thumb.is-selected {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-    .thumb.is-selected img {
-    filter: none;   /* <-- remove greyscale when selected */
-    opacity: 1;
-    }
-
-    /* Keyboard focus */
-    .thumb:focus-visible {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-    }
-
-
-   
-  </style>
-
-
-
+    <!-- Tracking utilities (makes f() and getCookie() available) -->
+    <script src="assets/js/tracking.js"></script>
+    
+    <!-- Component initialization helper (must load before bundles) -->
+    <script src="assets/js/component-init.js"></script>
+    
+    <!-- Main JavaScript (navigation, footer) -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Component bundles -->
+    <script src="assets/js/components/article/fold.js"></script>
+    <script src="assets/js/components/article/article-footer.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-  <section class="breadcrumb-section">
-    <div class="container">
-      <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blogs.html">All Articles</a></li>
-          <li class="active">Sleep Better: Tips for Restful Nights</li>
-        </ol>
-      </nav>
-    </div>
-  </section>
-  <div class="page-wrapper">
-    <div class="actions">
-      <div class="socials" aria-label="Social media">
-        <a class="icon" href="#" target="_blank" rel="noopener" aria-label="X">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 3H21l-6.6 7.6L21.7 21h-5.2l-4-5-4.5 5H3.3l7.2-8-7-8h5.2l3.7 4.5L18.9 3zM16 19h1.1L8.1 5H7L16 19z"/></svg>
-        </a>
-        <a class="icon" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/></svg>
-        </a>
-        <a class="icon" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 7.9H3.56V21h3.38V7.9zM5.25 3a2 2 0 1 0 .02 4 2 2 0 0 0-.02-4zM20.44 21h-3.38v-6.7c0-1.6-.03-3.65-2.22-3.65-2.22 0-2.56 1.73-2.56 3.53V21H8.9V7.9h3.24v1.78h.05a3.55 3.55 0 0 1 3.2-1.76c3.42 0 4.05 2.25 4.05 5.17V21z"/></svg>
-        </a>
-        <a class="icon" href="#" aria-label="Email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
-        </a>
-      </div>
-      <button id="copyBtn" class="btn-save" type="button">Copy Link!</button>
-      <div id="popup" class="popup">URL copied to clipboard!</div>
-    </div>
-    <div class="text-content">
-      <p dir="ltr">Quality sleep is the foundation of good health. It supports your mood, immune system, and energy. Here are simple habits to help you fall asleep faster and wake up refreshed.</p>
-      <h2 dir="ltr">Why Sleep Matters</h2>
-            <p>Quality sleep is the foundation of good health. It supports your mood, immune system, and energy. Here are simple habits to help you fall asleep faster and wake up refreshed.</p>
-            <p>When you're well rested, you think more clearly, handle stress better, and give your body time to repair and restore. Chronic poor sleep is linked to a higher risk of health issues, so improving your sleep is one of the most powerful steps you can take for long-term wellness.</p>
-            <div class="d-flex justify-content-center">
-              <img src="assets/images/carousel/mornings-were-made-for-muesli-2026-01-09-11-30-25-utc.jpg" class="img-fluid" alt="Restful morning" loading="lazy" decoding="async">
-            </div>
-            <h2>Stick to a Schedule</h2>
-            <p>Going to bed and waking up around the same time each day helps regulate your body clock. Even on weekends, try to keep the rhythm consistent.</p>
-            <p>A shift of more than an hour on your days off can throw your rhythm off and make Sunday night harder. If you need to catch up, aim for a slightly earlier bedtime rather than sleeping in too late. Over time, a consistent schedule makes falling asleep and waking up easier.</p>
-            <h2>Create a Calm Environment</h2>
-            <p>Keep your bedroom cool, dark, and quiet. Limit screens before bed and try reading or gentle stretching instead.</p>
-            <p>Use blackout curtains or an eye mask if light is an issue, and consider earplugs or a white-noise machine if noise disturbs you. Reserve your bed for sleep (and intimacy) so your brain learns to associate it with rest. If you can't sleep after 20 minutes, get up and do something calm until you feel drowsy, then try again.</p>
-            <h2>Wind Down Before Bed</h2>
-            <p>Give yourself 20–30 minutes to relax: dim the lights, avoid caffeine late in the day, and try deep breathing or a few minutes of quiet.</p>
-            <p>Caffeine can stay in your system for several hours, so cut it off by mid-afternoon if you're sensitive. Alcohol might help you doze off but often disrupts sleep later in the night. A light snack is fine, but heavy or spicy meals close to bedtime can interfere with sleep. Find a wind-down routine that signals to your body that it's time to rest—whether that's reading, stretching, or listening to calm music.</p>
-            <h2>When Sleep Still Feels Elusive</h2>
-            <p>If you've improved your habits and still struggle with sleep, consider keeping a simple sleep log: what time you went to bed, how long it took to fall asleep, how often you woke up, and how you felt in the morning. That information can help you or a healthcare provider spot patterns. Persistent insomnia or severe daytime fatigue may warrant a conversation with your doctor to rule out sleep disorders or other causes.</p>
-            <h2>Small Changes Add Up</h2>
-            <p>You don't need to change everything at once. Pick one or two habits and build from there. Your body will thank you.</p>
-            <div>
-              <hr class="line">
-              <h2>Meet your guide</h2>
-              <div class="row">
-                <div class="col-12 d-flex align-items-center justify-content-start mb-2">
-                  <img src="assets/images/Editor1.png" alt="Editor" class="img-fluid rounded-circle editor-photo me-2" loading="lazy" decoding="async">
-                  <p class="mb-0">Samantha Reed</p>
+    <!-- Navigation will be auto-inserted here -->
+    <main>
+        <article class="advertorial">
+            <section class="w-70 mx-auto my-4">
+                <!-- Fold component (title + author + leading title + image) -->
+                <div id="article-fold"></div>
+                
+                <div class="article-header">
+                    <span class="article-category-header category-routine">ROUTINE</span>
+                    <div class="article-separator category-routine"></div>
+                    <div class="article-byline">BY BETTER SLEEP GUIDES</div>
+                    <div class="article-date">February 3, 2026</div>
                 </div>
-                <div class="col-12">
-                  <p><b>About the Editor:</b> Samantha Reed is a lifestyle writer focused on wellness and simple habits for better sleep and daily balance.</p>
+                
+                <div class="article-content content-large">
+                    <div class="article-section">
+                        <p>What you do in the morning sets the tone for your entire day—and your night. Your morning routine directly impacts your sleep quality. Here is how to start your day in a way that supports better sleep.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Get Natural Light First Thing</h2>
+                        <p>Exposure to natural light in the morning helps reset your circadian rhythm. Open your curtains as soon as you wake up, or step outside for a few minutes. This signals to your brain that it is daytime and helps regulate when you will feel sleepy at night.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Wake Up at the Same Time</h2>
+                        <p>Consistency is key. Waking up at the same time every day, even on weekends, helps stabilize your sleep-wake cycle. Your body learns when to feel alert and when to feel tired.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Avoid Hitting Snooze</h2>
+                        <p>Those extra minutes of fragmented sleep do not help you feel more rested. Instead, they can make you feel groggier. Set your alarm for when you actually need to get up and commit to getting out of bed.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Move Your Body</h2>
+                        <p>Morning movement, even just a short walk or gentle stretching, can boost your energy and help regulate your sleep cycle. Exercise in the morning is linked to better sleep quality at night.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Eat a Balanced Breakfast</h2>
+                        <p>Starting your day with a nutritious breakfast helps stabilize your blood sugar and energy levels throughout the day. This prevents energy crashes that can disrupt your sleep schedule.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <p>Your morning routine and your night routine work together. When you start your day with healthy habits, you set yourself up for better sleep when evening comes. Small morning changes can lead to significant improvements in your sleep quality.</p>
+                    </div>
                 </div>
-              </div>
-            </div>
-
-
-          </div>
-
-
-
-
-
-
-          
-          <div class="text-link-section" style="display: none;">
-            <hr class="section-line" />
-            <h3 class="section-title">My Bold Title</h3>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-4 d-none d-lg-block">
-        </div>
-      </div>
-
-    </div>
-
-
-
-    <!-- === Image Gallery Section (inside .page-wrapper) === -->
-    <section class="image-gallery" aria-label="Product photos" style="display: none;">
-        <!-- 1) Full-width image -->
-        <figure class="gallery-hero">
-        <img id="galleryHeroImg"
-            src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600"
-            alt="Dog running on a beach"
-            loading="lazy"
-            decoding="async" />
-        <figcaption id="galleryCaption" class="gallery-caption">
-            A happy pup sprinting on the beach at sunset.
-        </figcaption>
-        </figure>
+            </section>
+        </article>
+    </main>
     
-        <!-- 2) Text description (you can fill this dynamically too if you’d like) -->
-        <p class="gallery-text">
-        Browse the scenes below. Click a thumbnail to swap the hero image and update the caption.
-        </p>
+    <!-- Article footer component -->
+    <div id="article-footer"></div>
     
-        <!-- 3) Thumbnails -->
-        <div class="gallery-thumbs" role="listbox" aria-label="Thumbnail selector">
-        <!-- Each thumbnail button carries data for the big image + caption -->
-        <button class="thumb is-selected" role="option" aria-selected="true"
-                data-full="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600"
-                data-alt="Dog running on a beach"
-                data-caption="A happy pup sprinting on the beach at sunset."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400"
-                alt="Thumbnail: dog on beach" loading="lazy" decoding="async" />
-        </button>
-    
-        <button class="thumb" role="option" aria-selected="false"
-                data-full="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1600"
-                data-alt="Close-up portrait of a dog"
-                data-caption="Close-up portrait showing gentle eyes and soft fur."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=400"
-                alt="Thumbnail: dog portrait" loading="lazy" decoding="async" />
-        </button>
-    
-        <button class="thumb" role="option" aria-selected="false"
-                data-full="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600"
-                data-alt="Dog with bandana in a park"
-                data-caption="Bandana style in the park—iconic LA dog fashion."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=400"
-                alt="Thumbnail: dog with bandana" loading="lazy" decoding="async" />
-        </button>
-    
-        <button class="thumb" role="option" aria-selected="false"
-                data-full="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1600"
-                data-alt="Dog playing with a ball"
-                data-caption="Playtime! Fetch in the backyard before dinner."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=400"
-                alt="Thumbnail: dog with ball" loading="lazy" decoding="async" />
-        </button>
-        </div>
-    </section>
-  
-  </div>
+    <script>
+        initComponentsWhenReady(function() {
+            const pageType = window.location.pathname.includes('/blog/') ? 'blog' : 'root';
+            
+            // 1. Create fold component (title + author + image)
+            document.getElementById('article-fold').innerHTML = createFold({
+                title: 'How Your Morning Routine Affects Your Sleep',
+                authorName: '',
+                authorImage: '',
+                imageSrc: 'article-5-hero.jpg',
+                imageAlt: 'Morning routine for better sleep',
+                imageCaption: '',
+                pageType: pageType
+            });
+            
+            // 2. Create article footer
+            document.getElementById('article-footer').innerHTML = createArticleFooter({
+                pageType: pageType
+            });
+        }, { waitForArticle: true });
+    </script>
 </body>
-<script>
-    // === Image Gallery Logic ===
-    (function () {
-      const heroImg = document.getElementById('galleryHeroImg');
-      const caption = document.getElementById('galleryCaption');
-      const thumbs = document.querySelectorAll('.image-gallery .thumb');
-  
-      function selectThumb(btn) {
-        // Update selected state
-        thumbs.forEach(t => {
-          t.classList.toggle('is-selected', t === btn);
-          t.setAttribute('aria-selected', t === btn ? 'true' : 'false');
-        });
-  
-        // Swap hero image + caption
-        const full = btn.getAttribute('data-full');
-        const alt = btn.getAttribute('data-alt') || '';
-        const text = btn.getAttribute('data-caption') || '';
-  
-        // Optional: smooth swap
-        heroImg.style.opacity = '0';
-        setTimeout(() => {
-          heroImg.src = full;
-          heroImg.alt = alt;
-          caption.textContent = text;
-          heroImg.onload = () => (heroImg.style.opacity = '1');
-        }, 100);
-      }
-  
-      thumbs.forEach(btn => {
-        btn.addEventListener('click', () => selectThumb(btn));
-        // Keyboard: left/right to move between thumbs
-        btn.addEventListener('keydown', (e) => {
-          if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-          e.preventDefault();
-          const list = Array.from(thumbs);
-          const i = list.indexOf(btn);
-          const next = e.key === 'ArrowRight'
-            ? list[(i + 1) % list.length]
-            : list[(i - 1 + list.length) % list.length];
-          next.focus();
-          selectThumb(next);
-        });
-      });
-    })();
-  
-    function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            return '';
-        }
 
-    function f(baseUrl) {
-            cvg({method: "track", eventName:"Modern Body Balance Pacagen Click"});
-            
-            // Get cookie values
-            let uid = getCookie('__cvg_uid');
-            let sid = getCookie('__cvg_sid');
-            
-            // Build the final URL with parameters
-            let finalUrl = baseUrl;
-            if (uid || sid) {
-                finalUrl += (finalUrl.includes('?') ? '&' : '?');
-                if (uid) finalUrl += `__cvg_uid=${encodeURIComponent(uid)}`;
-                if (uid && sid) finalUrl += '&';
-                if (sid) finalUrl += `__cvg_sid=${encodeURIComponent(sid)}`;
-            }
-            
-            // Redirect after 200ms delay
-            setTimeout(() => {
-                window.location.href = finalUrl;
-            }, 200);
-        }
-  </script>
-  
 </html>

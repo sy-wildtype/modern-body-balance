@@ -1,41 +1,51 @@
 // Main JavaScript file for Modern Body Balance
 
-
-// Head Component - Insert favicons, stylesheets and meta tags
+// Head Component - Insert favicon and stylesheets
 function insertHeadElements(pageType = 'root') {
-    // Check if head elements already exist to prevent duplicates
-    if (document.querySelector('link[rel="icon"]')) {
-        return; // Already inserted
-    }
-    
     // Determine the correct path based on page type
     const assetPath = pageType === 'blog' ? '../assets' : 'assets';
-    const faviconPath = `${assetPath}/images/favicon_io`;
     
+    // Check if favicon elements already exist to prevent duplicates
+    const faviconExists = document.querySelector('link[rel="icon"]');
+    
+    // Only add favicon links if they don't exist
+    if (!faviconExists) {
     // Create the head elements
     const headElements = `
-        <!-- Favicons -->
-        <link rel="icon" type="image/x-icon" href="${faviconPath}/favicon.ico">
-        <link rel="icon" type="image/png" sizes="32x32" href="${faviconPath}/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="${faviconPath}/favicon-16x16.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="${faviconPath}/apple-touch-icon.png">
-        <link rel="manifest" href="${faviconPath}/site.webmanifest">
+        <!-- Favicon (Modern Body Balance) -->
+            <link rel="icon" type="image/x-icon" href="${assetPath}/images/favicon/favicon.ico">
+            <link rel="icon" type="image/png" sizes="16x16" href="${assetPath}/images/favicon/favicon-16x16.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="${assetPath}/images/favicon/favicon-32x32.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="${assetPath}/images/favicon/apple-touch-icon.png">
+            <link rel="icon" type="image/png" sizes="192x192" href="${assetPath}/images/favicon/android-chrome-192x192.png">
+            <link rel="icon" type="image/png" sizes="512x512" href="${assetPath}/images/favicon/android-chrome-512x512.png">
+            <link rel="manifest" href="${assetPath}/images/favicon/site.webmanifest">
 
-        <!-- Meta Tags -->
-        <meta name="theme-color" content="#005F02">
-        <meta name="msapplication-TileColor" content="#005F02">
+        <!-- Additional Meta Tags -->
+            <meta name="theme-color" content="#C9A8B8">
+            <meta name="msapplication-TileColor" content="#C9A8B8">
     `;
     
     // Insert the elements into the head
     document.head.insertAdjacentHTML('beforeend', headElements);
+    }
     
-    // Load stylesheets with proper loading detection
+    // Always load stylesheets (check if already loaded)
+    const styleSheetExists = document.querySelector(`link[href*="${assetPath}/css/style.css"]`) || 
+                             document.querySelector('link[href*="style.css"]');
+    
+    if (!styleSheetExists) {
     loadStylesheets(assetPath);
+    } else {
+        // Stylesheets already loaded, show content immediately
+        setTimeout(() => {
+            document.body.style.visibility = 'visible';
+            document.body.style.opacity = '1';
+        }, 100);
+    }
 }
 
-
 // Load stylesheets and show content when ready
-var contentRevealedByStylesheets = false;
 function loadStylesheets(assetPath) {
     let stylesheetsLoaded = 0;
     const totalStylesheets = 2;
@@ -44,7 +54,6 @@ function loadStylesheets(assetPath) {
     function showContent() {
         if (!contentShown) {
             contentShown = true;
-            contentRevealedByStylesheets = true;
             document.body.style.visibility = 'visible';
             document.body.style.opacity = '1';
         }
@@ -61,6 +70,13 @@ function loadStylesheets(assetPath) {
     // Fallback: Show content after 2 seconds even if CSS doesn't load
     setTimeout(showContent, 2000);
     
+    // Load main stylesheet
+    const mainCSS = document.createElement('link');
+    mainCSS.rel = 'stylesheet';
+    mainCSS.href = `${assetPath}/css/style.css`;
+    mainCSS.onload = onStylesheetLoad;
+    mainCSS.onerror = onStylesheetLoad; // Show content even if CSS fails
+    document.head.appendChild(mainCSS);
     
     // Load Bootstrap CSS
     const bootstrapCSS = document.createElement('link');
@@ -71,37 +87,35 @@ function loadStylesheets(assetPath) {
     bootstrapCSS.onload = onStylesheetLoad;
     bootstrapCSS.onerror = onStylesheetLoad; // Show content even if CSS fails
     document.head.appendChild(bootstrapCSS);
-
-    // Load main stylesheet
-    const mainCSS = document.createElement('link');
-    mainCSS.rel = 'stylesheet';
-    mainCSS.href = `${assetPath}/css/style.css`;
-    mainCSS.onload = onStylesheetLoad;
-    mainCSS.onerror = onStylesheetLoad; // Show content even if CSS fails
-    document.head.appendChild(mainCSS);
 }
 
 // Navigation Component - Insert navigation HTML
 function insertNavigation(pageType = 'root', currentPage = '') {
     // Determine the correct paths based on page type
     const homePath = pageType === 'blog' ? '../index.html' : 'index.html';
-    const logoPath = pageType === 'blog' ? '../assets/images/MBB-logo.png' : 'assets/images/MBB-logo.png';
-  
-    // Define the header HTML (now actually using the paths)
-    const navHTML = `
-        <nav id="mainHeader" class="navbar navbar-expand-lg border-bottom fixed-top">
-            <div class="container justify-content-center">
-                <a class="navbar-brand mx-auto" href="index.html">
-                    <img src="${logoPath}" alt="Modern Body Balance">
+    const logoPath = pageType === 'blog' ? '../assets/images/logo/MBB-logo.png' : 'assets/images/logo/MBB-logo.png';
+    const blogPath = pageType === 'blog' ? 'index.html' : 'blog/index.html';
+    
+    // Check if we're on an article page (has article-fold element)
+    const isArticlePage = document.getElementById('article-fold') !== null;
+    
+    // Create navigation HTML - show brand text only on non-article pages
+    const brandTextHTML = isArticlePage ? '' : '<span class="brand-text">Modern Body Balance</span>';
+
+    const navigationHTML = `
+        <header>
+            <nav>
+                <a href="${homePath}" class="nav-brand">
+                    <img src="${logoPath}" alt="Modern Body Balance Logo" id="logo">
+                    ${brandTextHTML}
                 </a>
-            </div>
-        </nav>
+            </nav>
+        </header>
     `;
-  
-    // Insert at the very beginning of body
-    document.body.insertAdjacentHTML('afterbegin', navHTML);
-  }
-  
+    
+    // Insert navigation at the beginning of body
+    document.body.insertAdjacentHTML('afterbegin', navigationHTML);
+}
 
 // Footer Component - Insert footer HTML
 function insertFooter(pageType = 'root') {
@@ -112,10 +126,10 @@ function insertFooter(pageType = 'root') {
     // Create footer HTML
     const footerHTML = `
         <footer>
-            <div class="container">
+            <div class="container footer-text">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p>&copy; 2026 Modern Body Balance. All rights reserved.</p>
+                        <p>&copy; 2026 Better Sleep Guides. All rights reserved.</p>
                         <p>
                             <a href="${privacyPath}">Privacy Policy</a> | 
                             <a href="${termsPath}">Terms of Service</a>
@@ -153,7 +167,8 @@ function insertFooter(pageType = 'root') {
             if (!document.querySelector('nav')) {
                 insertNavigation(pageType, currentPage);
             }
-            if (!document.querySelector('footer')) {
+            // Only insert main footer if there's no article-footer element (article pages handle their own footer)
+            if (!document.querySelector('footer') && !document.getElementById('article-footer')) {
                 insertFooter(pageType);
             }
         });
@@ -162,51 +177,16 @@ function insertFooter(pageType = 'root') {
         if (!document.querySelector('nav')) {
             insertNavigation(pageType, currentPage);
         }
-        if (!document.querySelector('footer')) {
+        // Only insert main footer if there's no article-footer element (article pages handle their own footer)
+        if (!document.querySelector('footer') && !document.getElementById('article-footer')) {
             insertFooter(pageType);
         }
     }
 })();
 
-
-// Lazy images load natively; no fade animation to avoid glitchy appearance
-function initLazyImageReveal() {
-    // Intentionally empty: we keep native lazy loading only, no opacity transition
-}
-
-// Reveal body (FOUC fallback for pages that have stylesheet in head and don't use loadStylesheets)
-function revealBody() {
-    if (contentRevealedByStylesheets) return;
-    document.body.style.visibility = 'visible';
-    document.body.style.opacity = '1';
-}
-
-// Auto-scroll the "Follow us" circle track (infinite loop, synced to display to avoid jump)
-function initFollowUsAutoScroll() {
-    var container = document.getElementById('scrollContainer');
-    if (!container) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var step = 0.35;
-    function tick() {
-        var half = container.scrollWidth / 2;
-        if (half > 0) {
-            container.scrollLeft += step;
-            if (container.scrollLeft >= half) {
-                container.scrollLeft -= half;
-            }
-        }
-        requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-}
-
 // Wait for DOM to be fully loaded for additional functionality
 document.addEventListener('DOMContentLoaded', function() {
-    revealBody();
-    initLazyImageReveal();
-    initFollowUsAutoScroll();
-
+    
     // Smooth scrolling for internal links
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
@@ -221,89 +201,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
-
-
-// used for sharing buttons
-document.addEventListener('DOMContentLoaded', function () {
-  const pageUrl = window.location.href;
-  const encodedUrl = encodeURIComponent(pageUrl);
-  const pageTitle = document.title || 'Check this out';
-  const encodedTitle = encodeURIComponent(pageTitle);
-  const defaultText = encodeURIComponent('Check this out!');
-
-  // Optional: Use native share on mobile if available
-  function tryNativeShare(textLabel) {
-    if (navigator.share) {
-      navigator.share({ title: pageTitle, text: textLabel || pageTitle, url: pageUrl })
-        .catch(() => {}); // user canceled or not supported by target app
-      return true;
-    }
-    return false;
-  }
-
-  // Assign URLs / handlers
-  document.querySelectorAll('[aria-label]').forEach(el => {
-    const type = el.getAttribute('aria-label');
-
-    if (type === 'X') {
-      // X (Twitter)
-      const shareUrl = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${defaultText}`;
-      el.setAttribute('href', shareUrl);
-      el.setAttribute('target', '_blank');
-      el.setAttribute('rel', 'noopener');
-      el.addEventListener('click', e => {
-        // try native share first
-        if (tryNativeShare('Check this out!')) { e.preventDefault(); }
-      });
-    }
-
-    if (type === 'LinkedIn') {
-      // LinkedIn
-      const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`;
-      el.setAttribute('href', shareUrl);
-      el.setAttribute('target', '_blank');
-      el.setAttribute('rel', 'noopener');
-      el.addEventListener('click', e => {
-        if (tryNativeShare()) { e.preventDefault(); }
-      });
-    }
-
-    if (type === 'Email') {
-      // Email
-      const subject = encodedTitle;
-      const body = encodeURIComponent(`${pageTitle}\n\n${pageUrl}`);
-      const mailto = `mailto:?subject=${subject}&body=${body}`;
-      el.setAttribute('href', mailto);
-      // mailto should open the client; no native share override
-    }
-
-    if (type === 'Instagram') {
-      // No web share URL for Instagram posts. Best we can do is copy the link.
-      const shareUrl = `https://www.instagram.com/modernbodybalance/`;
-      el.setAttribute('href', shareUrl);
-      el.setAttribute('target', '_blank');
-      el.setAttribute('rel', 'noopener');
-      el.addEventListener('click', e => {
-        if (tryNativeShare()) { e.preventDefault(); }
-      });
-    }
-  });
-});
-
-// copy button function
-const copyBtn = document.getElementById("copyBtn");
-const popup = document.getElementById("popup");
-
-copyBtn.addEventListener("click", () => {
-  const url = window.location.href;
-  navigator.clipboard.writeText(url).then(() => {
-    // Show popup
-    popup.classList.add("show");
-
-    // Hide after 2 seconds
-    setTimeout(() => {
-      popup.classList.remove("show");
-    }, 2000);
-  });
 });

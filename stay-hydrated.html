@@ -1,568 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hydration affects your energy, focus, and overall health. Easy ways to drink more water and feel your best.">
-  <meta name="keywords" content="hydration, water, healthy lifestyle, wellness, drink more water">
-  <title>Stay Hydrated: Why Water Is Your Best Friend | Modern Body Balance</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Essential sleep hygiene tips to improve your sleep quality. Learn the habits and practices that lead to better, more restful sleep.">
+    <meta name="keywords"
+        content="sleep hygiene, sleep tips, better sleep, sleep quality, sleep habits, insomnia tips, sleep routine, healthy sleep">
+    <title>Stay Hydrated: The Foundation of Body Balance | Modern Body Balance</title>
 
-  <script src="assets/js/main.js" defer></script>
+    <!-- Open Graph / social share -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Stay Hydrated: The Foundation of Body Balance | Modern Body Balance">
+    <meta property="og:description" content="Understand the crucial role of hydration in maintaining your body's natural balance and function.">
+    <meta property="og:image" content="/assets/images/article-3.jpg">
+    <meta property="og:url" content="/stay-hydrated.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stay Hydrated: The Foundation of Body Balance | Modern Body Balance">
+    <meta name="twitter:description" content="Understand the crucial role of hydration in maintaining your body's natural balance and function.">
+    <meta name="twitter:image" content="/assets/images/article-3.jpg">
 
-  <script>document.documentElement.className += ' js';</script>
-  <script src="https://static.runconverge.com/pixels/rD_1RV.js" async></script>
-  <script>
-  window.cvg||(cvg=function(){cvg.process?cvg.process.apply(cvg,arguments):cvg.queue.push(arguments)},cvg.queue=[]);
-  cvg({method:"track",eventName:"$page_load"});
-  cvg({ method: "link_domain", domain: "pacagen.com" });
-  </script>
-
-  <style>
-    :root {
-      --header-height: 124px;
-    }
-
-    body {
-      overflow-x: hidden; /* prevents horizontal scrollbar */
-      padding-top: var(--header-height); /* keep content below fixed header */
-      line-height: 1.5;
-      font-family: "Times New Roman";
-    }
-
-    /* Page stack */
-    .page-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;  /* left align */
-      gap: 24px;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 24px 16px 64px;
-    }
-
-    .editor-photo {
-      width: clamp(50px, 8vw, 80px);
-      height: clamp(50px, 8vw, 80px);
-      object-fit: cover;
-    }
-
-    /* Header block (title + date + decorative line) */
-    .hero-block {
-      width: 70%;
-    }
-
-    .line {
-      /* line starts at 30% of viewport, ends at 60% (so width = 30vw) */
-      margin: 0;                      /* no extra top gap */
-      height: 0;
-      border: none;
-      border-top: 4px solid #000000; 
-      width: 100%;
-      opacity: 1;
-    }
-
-    .title {
-      font-weight: 700;
-      font-size: 45px;
-      margin: 16px 0 0 0;          /* left edge aligned with the line */
-      font-family: "Poppins", system-ui, sans-serif;
-    }
-
-    .title-date {
-      color: #747474;
-      font-size: 18px;
-      margin: 4px 0 0 0;           /* aligned with title & line */
-    }
-
-    .full-width-image {
-        width: 100%;
-    }
-    .full-width-image img{
-        width: 100%;
-    }
+    <!-- Head components (FOUC prevention, tracking init) -->
+    <script src="assets/js/head-components.js"></script>
     
-    /* Actions row */
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .socials {
-      display: flex;
-      gap: 10px;
-    }
-
-    .icon {
-        width: clamp(2rem, 4vw, 2.5rem);
-        height: clamp(2rem, 4vw, 2.5rem);
-      display: inline-grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #111;
-      color: #fff;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-      transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
-    }
-    .icon svg { width: 50%; height: 50%; fill: currentColor; }
-    .icon:hover { transform: translateY(-1px); background: #222; box-shadow: 0 6px 16px rgba(0,0,0,0.18); }
-
-    .btn-save {
-      padding: 10px 18px;
-      border: none;
-      border-radius: 9999px;
-      background: #969697;
-      color: #fff;
-      font-weight: 700;
-      letter-spacing: .02em;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(86, 86, 87, 0.35);
-      transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
-    }
-    .btn-save:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(94, 94, 94, 0.4); filter: brightness(1.03); }
-
-    /* Click (active) effect */
-    .btn-save:active {
-      transform: scale(0.96);  /* slightly shrink */
-      box-shadow: 0 1px 4px rgba(50, 50, 50, 0.3); /* smaller shadow */
-      filter: brightness(0.95); /* dim a little */
-    }
-
-    /* Section with thin line + title */
-    .text-link-section {
-      margin-top: 24px;
-    }
-
-    .section-line {
-      width: 30vw;
-      height: 0;
-      border: none;
-      border-top: 2px solid #000;
-    }
-
-    .section-title {
-      font-weight: 700;
-      font-size: 30px;
-      margin: 12px 0 0 0;       /* align with line */
-      font-family: "Poppins", system-ui, sans-serif;
-    }
-
-    .text-link-section a {
-        display: block;        /* stack vertically */
-        margin-bottom: 8px;    /* space between links */
-        font-weight: bold;
-        font-size: 20px;
-        color: #000000;
-        text-decoration: none;
-    }
-
-    /* Content tweaks */
-    .text-content {
-      white-space: pre-line;       /* keep your line breaks readable */
-    }
-
-    .text-content h2 {
-      font-weight: bold; 
-    }
-
-    .text-content p {
-      margin-bottom: 0;
-    }
-
-    .text-content ul {
-
-      margin-top: 0px;     /* space before the list */
-      margin-bottom: 0px;  /* space after the list */
-      padding-left: 20px;  /* indentation of bullets */
-      line-height: 1;
-    }
-
-    .text-content li {
-      margin-bottom: 4px;  /* space between list items */
-    }
-
-    /* Responsive: on small screens, don't force 30vw alignment */
-    @media (max-width: 768px) {
-      .line,
-      .title,
-      .title-date,
-      .section-line,
-      .section-title { margin-left: 0; width: 100%; }
-      .line { width: 100%; }
-      .section-line { width: 100%; }
-      .title {
-          font-size: 32px;
-        }
-      .hero-block {
-        width: 100%;
-      }
-      .text-content {
-        font-size: 20px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .title {
-        font-size: 24px;
-      }
-    }
-
-    /* === Image Gallery Styles === */
-    .image-gallery {
-    width: 100%;            /* full width of .page-wrapper */
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    }
-
-    .gallery-hero {
-    margin: 0;
-    }
-
-    .gallery-hero img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 12px;
-    object-fit: cover;
-    /* Optional nice aspect on tall screens; remove if you want natural height */
-    aspect-ratio: 16 / 9;
-    }
-
-    .gallery-caption {
-    margin-top: 8px;
-    color: #555;
-    font-size: 0.95rem;
-    }
-
-    .gallery-text {
-    margin: 0 0 4px 0;
-    }
-
-    /* Center the thumbnail row */
-    .gallery-thumbs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;   /* <-- center the small images */
-    }
-
-    /* Thumbs */
-    .thumb {
-    padding: 0;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    background: transparent;
-    cursor: pointer;
-    outline: none;
-    transition: border-color .15s ease, transform .12s ease, box-shadow .15s ease;
-    }
-
-    .thumb img {
-    display: block;
-    width: 110px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 8px;
-
-    /* Greyscale by default, animate to color */
-    filter: grayscale(100%);
-    transition: filter .25s ease, transform .12s ease, opacity .2s ease;
-    opacity: 0.9; /* slight dim by default */
-    }
-
-    /* Hover gives a hint even when not selected */
-    .thumb:hover img {
-    filter: grayscale(40%);
-    opacity: 1;
-    transform: translateY(-1px);
-    }
-
-    /* Selected state: color + focus ring */
-    .thumb.is-selected {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-    .thumb.is-selected img {
-    filter: none;   /* <-- remove greyscale when selected */
-    opacity: 1;
-    }
-
-    /* Keyboard focus */
-    .thumb:focus-visible {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
-    }
-
-
-   
-  </style>
-
-
-
+    <!-- Tracking utilities (makes f() and getCookie() available) -->
+    <script src="assets/js/tracking.js"></script>
+    
+    <!-- Component initialization helper (must load before bundles) -->
+    <script src="assets/js/component-init.js"></script>
+    
+    <!-- Main JavaScript (navigation, footer) -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Component bundles -->
+    <script src="assets/js/components/article/fold.js"></script>
+    <script src="assets/js/components/article/article-footer.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-
-  <div class="page-wrapper">
-    <!-- Title block -->
-    <section class="hero-block">
-      <hr class="line" />
-      <h2 class="title">Stay Hydrated: Why Water Is Your Best Friend</h2>
-      <p class="title-date">Updated Aug 29, 2025</p>
-      <p><i>Easy ways to drink more water and feel your best.</i></p>
-    </section>
-
-
-    <!-- Main content: clean Bootstrap grid -->
-    <div class="container px-0">
-      <div class="row g-4">
-        <div class="col-12 col-lg-8">
-          <div class="row">
-            <!-- First row: image -->
-            <div class="col-12 d-flex align-items-center justify-content-start mb-2">
-              <img src="assets/images/Editor1.png"
-                   alt="Description"
-                   class="img-fluid rounded-circle editor-photo me-2"
-                   loading="lazy"
-                   decoding="async">
-              <p class="mb-0">Samantha Reed</p>
-            </div>
-          
-            <!-- Second row: text -->
-            <div class="col-12">
-              <p><b>About the Editor:</b>
-                Samantha Reed is a lifestyle writer and home enthusiast based in Brooklyn. She has spent the last five years testing products for cleaner, calmer, and cozier living. 
-              </p>
-            </div>
+    <!-- Navigation will be auto-inserted here -->
+    <main>
+        <article class="advertorial">
+            <section class="w-70 mx-auto my-4">
+                <!-- Fold component (title + author + leading title + image) -->
+                <div id="article-fold"></div>
+                
+                <div class="article-header">
+                    <span class="article-category-header category-wellness">WELLNESS</span>
+                    <div class="article-separator category-wellness"></div>
+                    <div class="article-byline">BY BETTER SLEEP GUIDES</div>
+                    <div class="article-date">February 3, 2026</div>
+                </div>
+                
+                <div class="article-content content-large">
+                    <div class="article-section">
+                        <p>Sleep hygiene refers to the habits and practices that set you up for quality sleep. Good sleep hygiene is not about perfection—it is about creating an environment and routine that supports your body's natural sleep process.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Keep a Consistent Sleep Schedule</h2>
+                        <p>Going to bed and waking up at the same time every day, even on weekends, helps regulate your body's internal clock. Your brain learns when to release sleep hormones and when to wake up naturally.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Create a Sleep-Friendly Environment</h2>
+                        <p>Your bedroom should be cool, dark, and quiet. Aim for a temperature around 65 to 68 degrees Fahrenheit. Use blackout curtains or a sleep mask to block light, and consider earplugs or a white noise machine if noise is an issue.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Limit Caffeine and Alcohol</h2>
+                        <p>Caffeine can stay in your system for up to eight hours, so avoid it in the afternoon and evening. While alcohol might make you feel sleepy initially, it disrupts your sleep cycle later in the night.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Get Regular Exercise</h2>
+                        <p>Regular physical activity can help you fall asleep faster and enjoy deeper sleep. However, try to finish intense workouts at least a few hours before bedtime, as exercise can be energizing.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Manage Stress Before Bed</h2>
+                        <p>Stress and worry can keep your mind racing at night. Try journaling, meditation, or gentle stretching before bed to help your mind unwind. Write down your worries so your brain does not have to hold onto them.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <p>Sleep hygiene is a practice, not a destination. Start with one or two changes and build from there. Small, consistent improvements can lead to significantly better sleep over time.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+    
+    <!-- Article footer component -->
+    <div id="article-footer"></div>
+    
+    <script>
+        initComponentsWhenReady(function() {
+            const pageType = window.location.pathname.includes('/blog/') ? 'blog' : 'root';
             
-          </div>
-          <br>
-          <hr class="line">
-          <br>
-          <!-- Socials + Save -->
-          <div class="actions">
-            <div class="socials" aria-label="Social media">
-              <a class="icon" href="#" target="_blank" rel="noopener" aria-label="X">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 3H21l-6.6 7.6L21.7 21h-5.2l-4-5-4.5 5H3.3l7.2-8-7-8h5.2l3.7 4.5L18.9 3zM16 19h1.1L8.1 5H7L16 19z"/></svg>
-              </a>
-              <a class="icon" href="#" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.8z"/></svg>
-              </a>
-              <a class="icon" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 7.9H3.56V21h3.38V7.9zM5.25 3a2 2 0 1 0 .02 4 2 2 0 0 0-.02-4zM20.44 21h-3.38v-6.7c0-1.6-.03-3.65-2.22-3.65-2.22 0-2.56 1.73-2.56 3.53V21H8.9V7.9h3.24v1.78h.05a3.55 3.55 0 0 1 3.2-1.76c3.42 0 4.05 2.25 4.05 5.17V21z"/></svg>
-              </a>
-              <a class="icon" href="#" aria-label="Email">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
-              </a>
-            </div>
-
-            <button id="copyBtn" class="btn-save" type="button">Copy Link!</button>
-            <div id="popup" class="popup">URL copied to clipboard!</div>
-          </div>
-          <div class="text-content">
-            <h2>Why Hydration Matters</h2>
-            <p>Water affects your energy, focus, and overall health. Even mild dehydration can leave you tired or foggy. Here are easy ways to drink more water and feel your best.</p>
-            <p>Water helps carry nutrients to your cells, flush waste, regulate body temperature, and cushion joints. When you're low on fluids, your heart may work harder, your concentration can dip, and you might feel headaches or sluggishness. Staying hydrated is one of the simplest ways to support your body every day.</p>
-            <div class="d-flex justify-content-center">
-              <img src="assets/images/carousel/tasty-blueberry-smoothie-in-jars-berries-oatmeal-2026-02-11-18-16-56-utc.jpg" class="img-fluid" alt="Healthy drinks" loading="lazy" decoding="async">
-            </div>
-            <h2>Keep Water Handy</h2>
-            <p>Keep a reusable bottle on your desk, in your bag, or in the car. When it's visible, you're more likely to sip throughout the day.</p>
-            <p>Choose a bottle you like and that's easy to carry. Some people find that marked bottles or apps that remind them to drink help until the habit sticks. Filling your bottle at the same time each day—for example, when you make coffee or start work—can make hydration part of your routine.</p>
-            <h2>Start and End With Water</h2>
-            <p>Drink a glass when you wake up and one before bed. It's an easy routine that adds two glasses to your day.</p>
-            <p>Morning water can help rehydrate you after sleep and kick-start your digestion. A small glass before bed is fine for most people; if you find it wakes you up for bathroom trips, have your last big drink a bit earlier in the evening.</p>
-            <h2>Add Flavor Without Sugar</h2>
-            <p>If plain water feels boring, try a slice of lemon, cucumber, or mint. Herbal tea counts toward your fluid intake too.</p>
-            <p>Infused water can be made in a pitcher and kept in the fridge. Unsweetened sparkling water is another option if you like a little fizz. Just watch out for drinks that are high in sugar or caffeine—they're not ideal as your main hydration source.</p>
-            <h2>Eat Water-Rich Foods</h2>
-            <p>Fruits and vegetables like watermelon, cucumber, and oranges contribute to hydration. Include them in meals and snacks.</p>
-            <p>Soups, smoothies, and oatmeal also add fluids. In hot weather or when you're more active, you need more water, so drink before you feel thirsty and a bit extra when you sweat. Urine that's pale yellow usually means you're well hydrated; dark yellow may mean you need more fluids.</p>
-            <h2>How Much Is Enough?</h2>
-            <p>General guidelines suggest around 8 glasses (about 2 liters) per day, but needs vary with size, activity, and climate. Thirst is a good cue—drink when you're thirsty and a bit more when it's hot or you're exercising. If you're unsure, start with one extra glass per day and adjust from there.</p>
-            <h2>Small Steps Add Up</h2>
-            <p>Set a small goal—like one extra glass at lunch—and build from there. Your body will thank you.</p>
-            <div>
-              <hr class="line">
-              <h2>Meet your guide</h2>
-              <div class="row">
-                <div class="col-12 d-flex align-items-center justify-content-start mb-2">
-                  <img src="assets/images/Editor1.png" alt="Editor" class="img-fluid rounded-circle editor-photo me-2" loading="lazy" decoding="async">
-                  <p class="mb-0">Samantha Reed</p>
-                </div>
-                <div class="col-12">
-                  <p><b>About the Editor:</b> Samantha Reed is a lifestyle writer focused on wellness and simple habits for staying hydrated and energized.</p>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-
-
-
-
-
-
-          
-          <div class="text-link-section" style="display: none;">
-            <hr class="section-line" />
-            <h3 class="section-title">My Bold Title</h3>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-            <a href="https://www.pacagen.com">test</a>
-          </div>
-        </div>
-
-        <div class="col-12 col-lg-4 d-none d-lg-block">
-        </div>
-      </div>
-
-    </div>
-
-
-
-    <!-- === Image Gallery Section (inside .page-wrapper) === -->
-    <section class="image-gallery" aria-label="Product photos" style="display: none;">
-        <!-- 1) Full-width image -->
-        <figure class="gallery-hero">
-        <img id="galleryHeroImg"
-            src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600"
-            alt="Dog running on a beach"
-            loading="lazy"
-            decoding="async" />
-        <figcaption id="galleryCaption" class="gallery-caption">
-            A happy pup sprinting on the beach at sunset.
-        </figcaption>
-        </figure>
-    
-        <!-- 2) Text description (you can fill this dynamically too if you’d like) -->
-        <p class="gallery-text">
-        Browse the scenes below. Click a thumbnail to swap the hero image and update the caption.
-        </p>
-    
-        <!-- 3) Thumbnails -->
-        <div class="gallery-thumbs" role="listbox" aria-label="Thumbnail selector">
-        <!-- Each thumbnail button carries data for the big image + caption -->
-        <button class="thumb is-selected" role="option" aria-selected="true"
-                data-full="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600"
-                data-alt="Dog running on a beach"
-                data-caption="A happy pup sprinting on the beach at sunset."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=400"
-                alt="Thumbnail: dog on beach" loading="lazy" decoding="async" />
-        </button>
-    
-        <button class="thumb" role="option" aria-selected="false"
-                data-full="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1600"
-                data-alt="Close-up portrait of a dog"
-                data-caption="Close-up portrait showing gentle eyes and soft fur."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=400"
-                alt="Thumbnail: dog portrait" loading="lazy" decoding="async" />
-        </button>
-    
-        <button class="thumb" role="option" aria-selected="false"
-                data-full="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=1600"
-                data-alt="Dog with bandana in a park"
-                data-caption="Bandana style in the park—iconic LA dog fashion."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?q=80&w=400"
-                alt="Thumbnail: dog with bandana" loading="lazy" decoding="async" />
-        </button>
-    
-        <button class="thumb" role="option" aria-selected="false"
-                data-full="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=1600"
-                data-alt="Dog playing with a ball"
-                data-caption="Playtime! Fetch in the backyard before dinner."
-                type="button">
-            <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?q=80&w=400"
-                alt="Thumbnail: dog with ball" loading="lazy" decoding="async" />
-        </button>
-        </div>
-    </section>
-  
-  </div>
+            // 1. Create fold component (title + author + image)
+            document.getElementById('article-fold').innerHTML = createFold({
+                title: 'Essential Sleep Hygiene Tips for Better Rest',
+                authorName: '',
+                authorImage: '',
+                imageSrc: 'article-3-hero.jpg',
+                imageAlt: 'Sleep hygiene tips',
+                imageCaption: '',
+                pageType: pageType
+            });
+            
+            // 2. Create article footer
+            document.getElementById('article-footer').innerHTML = createArticleFooter({
+                pageType: pageType
+            });
+        }, { waitForArticle: true });
+    </script>
 </body>
-<script>
-    // === Image Gallery Logic ===
-    (function () {
-      const heroImg = document.getElementById('galleryHeroImg');
-      const caption = document.getElementById('galleryCaption');
-      const thumbs = document.querySelectorAll('.image-gallery .thumb');
-  
-      function selectThumb(btn) {
-        // Update selected state
-        thumbs.forEach(t => {
-          t.classList.toggle('is-selected', t === btn);
-          t.setAttribute('aria-selected', t === btn ? 'true' : 'false');
-        });
-  
-        // Swap hero image + caption
-        const full = btn.getAttribute('data-full');
-        const alt = btn.getAttribute('data-alt') || '';
-        const text = btn.getAttribute('data-caption') || '';
-  
-        // Optional: smooth swap
-        heroImg.style.opacity = '0';
-        setTimeout(() => {
-          heroImg.src = full;
-          heroImg.alt = alt;
-          caption.textContent = text;
-          heroImg.onload = () => (heroImg.style.opacity = '1');
-        }, 100);
-      }
-  
-      thumbs.forEach(btn => {
-        btn.addEventListener('click', () => selectThumb(btn));
-        // Keyboard: left/right to move between thumbs
-        btn.addEventListener('keydown', (e) => {
-          if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-          e.preventDefault();
-          const list = Array.from(thumbs);
-          const i = list.indexOf(btn);
-          const next = e.key === 'ArrowRight'
-            ? list[(i + 1) % list.length]
-            : list[(i - 1 + list.length) % list.length];
-          next.focus();
-          selectThumb(next);
-        });
-      });
-    })();
-  
-    function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-            return '';
-        }
 
-    function f(baseUrl) {
-            cvg({method: "track", eventName:"Modern Body Balance Pacagen Click"});
-            
-            // Get cookie values
-            let uid = getCookie('__cvg_uid');
-            let sid = getCookie('__cvg_sid');
-            
-            // Build the final URL with parameters
-            let finalUrl = baseUrl;
-            if (uid || sid) {
-                finalUrl += (finalUrl.includes('?') ? '&' : '?');
-                if (uid) finalUrl += `__cvg_uid=${encodeURIComponent(uid)}`;
-                if (uid && sid) finalUrl += '&';
-                if (sid) finalUrl += `__cvg_sid=${encodeURIComponent(sid)}`;
-            }
-            
-            // Redirect after 200ms delay
-            setTimeout(() => {
-                window.location.href = finalUrl;
-            }, 200);
-        }
-  </script>
-  
 </html>

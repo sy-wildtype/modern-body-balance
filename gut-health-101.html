@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Natural solutions for insomnia that actually work. Discover gentle approaches to help you fall asleep and stay asleep without medication.">
+    <meta name="keywords"
+        content="insomnia solutions, natural sleep aids, insomnia help, fall asleep, stay asleep, sleep problems, insomnia treatment, sleep remedies">
+    <title>Gut Health 101: Your Second Brain | Modern Body Balance</title>
+
+    <!-- Open Graph / social share -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Gut Health 101: Your Second Brain | Modern Body Balance">
+    <meta property="og:description" content="Explore the connection between gut health and overall wellness, plus tips to support your microbiome.">
+    <meta property="og:image" content="/assets/images/article-4.jpg">
+    <meta property="og:url" content="/gut-health-101.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gut Health 101: Your Second Brain | Modern Body Balance">
+    <meta name="twitter:description" content="Explore the connection between gut health and overall wellness, plus tips to support your microbiome.">
+    <meta name="twitter:image" content="/assets/images/article-4.jpg">
+
+    <!-- Head components (FOUC prevention, tracking init) -->
+    <script src="assets/js/head-components.js"></script>
+    
+    <!-- Tracking utilities (makes f() and getCookie() available) -->
+    <script src="assets/js/tracking.js"></script>
+    
+    <!-- Component initialization helper (must load before bundles) -->
+    <script src="assets/js/component-init.js"></script>
+    
+    <!-- Main JavaScript (navigation, footer) -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Component bundles -->
+    <script src="assets/js/components/article/fold.js"></script>
+    <script src="assets/js/components/article/article-footer.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Navigation will be auto-inserted here -->
+    <main>
+        <article class="advertorial">
+            <section class="w-70 mx-auto my-4">
+                <!-- Fold component (title + author + leading title + image) -->
+                <div id="article-fold"></div>
+                
+                <div class="article-header">
+                    <span class="article-category-header category-wellness">WELLNESS</span>
+                    <div class="article-separator category-wellness"></div>
+                    <div class="article-byline">BY BETTER SLEEP GUIDES</div>
+                    <div class="article-date">February 3, 2026</div>
+                </div>
+                
+                <div class="article-content content-large">
+                    <div class="article-section">
+                        <p>Insomnia can feel frustrating and isolating, but you are not alone. Many people struggle with falling asleep or staying asleep. The good news is that there are natural solutions that can help without relying on medication.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Practice the 4-7-8 Breathing Technique</h2>
+                        <p>This simple breathing exercise can help calm your nervous system. Inhale for four counts, hold for seven counts, and exhale for eight counts. Repeat this cycle four times. It activates your body's relaxation response.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Try Progressive Muscle Relaxation</h2>
+                        <p>Starting from your toes and working up to your head, tense each muscle group for a few seconds, then release. This technique helps you become aware of tension in your body and teaches you how to release it.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Use Visualization Techniques</h2>
+                        <p>Instead of counting sheep, try visualizing a peaceful place in detail. Imagine the sounds, smells, and sensations. This redirects your mind away from worries and toward relaxation.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Get Out of Bed If You Cannot Sleep</h2>
+                        <p>If you have been lying awake for more than twenty minutes, get out of bed and do something calming in dim light. Read a book, listen to soft music, or do gentle stretches. Return to bed only when you feel sleepy.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <h2>Consider Natural Supplements</h2>
+                        <p>Some people find relief with magnesium, melatonin, or chamomile tea. Always talk to your healthcare provider before starting any supplement, especially if you take other medications.</p>
+                    </div>
+                    
+                    <div class="article-section">
+                        <p>Remember that solving insomnia often takes time and patience. Be gentle with yourself and focus on progress, not perfection. If your insomnia persists, consider speaking with a sleep specialist.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+    
+    <!-- Article footer component -->
+    <div id="article-footer"></div>
+    
+    <script>
+        initComponentsWhenReady(function() {
+            const pageType = window.location.pathname.includes('/blog/') ? 'blog' : 'root';
+            
+            // 1. Create fold component (title + author + image)
+            document.getElementById('article-fold').innerHTML = createFold({
+                title: 'Natural Insomnia Solutions That Actually Work',
+                authorName: '',
+                authorImage: '',
+                imageSrc: 'article-4-hero.jpg',
+                imageAlt: 'Insomnia solutions',
+                imageCaption: '',
+                pageType: pageType
+            });
+            
+            // 2. Create article footer
+            document.getElementById('article-footer').innerHTML = createArticleFooter({
+                pageType: pageType
+            });
+        }, { waitForArticle: true });
+    </script>
+</body>
+
+</html>

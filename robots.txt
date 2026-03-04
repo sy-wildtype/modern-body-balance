@@ -16,7 +16,9 @@ Disallow: /assets/js/
 Disallow: /assets/css/
 
 # Allow important pages
-Allow: /blog/
-Allow: /advertorial*.html
-Allow: /quiz.html
+Allow: /eating-well-balanced-diet.html
+Allow: /move-your-body.html
+Allow: /stay-hydrated.html
+Allow: /gut-health-101.html
+Allow: /sleep-better.html
 Allow: /index.html
