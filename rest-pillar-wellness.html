@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover simple, nourishing breakfast ideas with yogurt and fruits. Start your day with protein, probiotics, and natural sweetness for sustained energy.">
+    <meta name="keywords"
+        content="healthy breakfast, yogurt and fruits, breakfast ideas, morning nutrition, Greek yogurt, probiotic breakfast, balanced breakfast, wellness nutrition">
+    <title>Start Your Day Right: Healthy Breakfast Ideas with Yogurt and Fruits | Modern Body Balance</title>
+
+    <!-- Open Graph / social share -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Start Your Day Right: Healthy Breakfast Ideas with Yogurt and Fruits">
+    <meta property="og:description" content="Discover simple, nourishing breakfast ideas with yogurt and fruits for sustained energy.">
+    <meta property="og:image" content="/assets/images/article-5.jpg">
+    <meta property="og:url" content="/rest-pillar-wellness.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Start Your Day Right: Healthy Breakfast Ideas with Yogurt and Fruits">
+    <meta name="twitter:description" content="Discover simple, nourishing breakfast ideas with yogurt and fruits for sustained energy.">
+    <meta name="twitter:image" content="/assets/images/article-5.jpg">
+
+    <!-- Head components (FOUC prevention, tracking init) -->
+    <script src="assets/js/head-components.js"></script>
+    
+    <!-- Tracking utilities (makes f() and getCookie() available) -->
+    <script src="assets/js/tracking.js"></script>
+    
+    <!-- Component initialization helper (must load before bundles) -->
+    <script src="assets/js/component-init.js"></script>
+    
+    <!-- Main JavaScript (navigation, footer) -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Component bundles -->
+    <script src="assets/js/components/article/fold.js"></script>
+    <script src="assets/js/components/article/article-footer.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Navigation will be auto-inserted here -->
+    <main>
+        <article class="advertorial">
+            <section class="article-page-layout my-4">
+                <div class="article-main-content">
+                    <div class="w-70 mx-auto">
+                        <!-- Fold component (title + author + leading title + image) -->
+                        <div id="article-fold"></div>
+
+                        <div class="article-content content-large">
+                            <div class="article-section">
+                                <p>How you start your morning sets the tone for the rest of your day. A healthy breakfast doesn't have to be complicated—yogurt and fruits offer a simple, satisfying combination that delivers protein, probiotics, and natural sweetness. Here's how to make the most of this classic pairing.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Why Yogurt and Fruits Work So Well Together</h2>
+                                <p>Yogurt provides protein and probiotics that support digestion and keep you full. Fruits add fiber, vitamins, and natural sugars that give you energy without the crash. Together, they create a balanced breakfast that stabilizes blood sugar and fuels your body for the day ahead.</p>
+                                <div class="article-content-image text-center">
+                                    <img src="assets/images/article/greek-yogurt.jpg" class="article-img" alt="Greek yogurt with fresh fruits">
+                                </div>
+                            </div>
+                            <div class="article-section">
+                                <h2>Choose the Right Yogurt</h2>
+                                <p>Plain Greek yogurt is a standout choice—it's higher in protein and lower in added sugar than many flavored options. Look for varieties with live cultures for probiotic benefits. If you prefer a creamier texture, whole-milk yogurt works beautifully. For a dairy-free option, coconut or almond-based yogurts pair well with fruits too.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Best Fruits to Pair with Yogurt</h2>
+                                <p>Almost any fruit works, but some combinations shine:</p>
+                                <ul>
+                                    <li>Berries (strawberries, blueberries, raspberries)—packed with antioxidants</li>
+                                    <li>Banana—adds creaminess and potassium</li>
+                                    <li>Peaches or mango—sweet and refreshing</li>
+                                    <li>Apple or pear—add a crunch when diced fresh</li>
+                                    <li>Pomegranate seeds—burst of tart sweetness</li>
+                                </ul>
+                                <p>Mix and match based on what's in season for the freshest flavor.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Simple Add-Ins for Extra Nutrition</h2>
+                                <p>Elevate your yogurt bowl with a sprinkle of nuts, seeds, or whole grains:</p>
+                                <ul>
+                                    <li>Chia seeds or flaxseed—omega-3s and fiber</li>
+                                    <li>Granola or oats—crunch and sustained energy</li>
+                                    <li>Almonds or walnuts—healthy fats and protein</li>
+                                    <li>Honey or maple syrup—a touch of sweetness if needed</li>
+                                </ul>
+                            </div>
+                            <div class="article-section">
+                                <h2>Quick Breakfast Ideas</h2>
+                                <p>Layer Greek yogurt with mixed berries and a drizzle of honey. Blend yogurt with banana and frozen mango for a quick smoothie bowl. Or keep it classic—a generous scoop of yogurt topped with sliced peaches and a handful of granola. No matter which combination you choose, you're giving your body a nourishing start to the day.</p>
+                                <div class="article-content-image text-center">
+                                    <img src="assets/images/article/oatmeal-and-chia.JPG" class="article-img" alt="Yogurt parfait with oats and chia">
+                                </div>
+                            </div>
+                            <div class="article-section">
+                                <p>A healthy breakfast with yogurt and fruits is one of the simplest ways to support your wellness. It's quick to assemble, endlessly customizable, and delivers the nutrients your body needs to thrive. Start with one combination you love and build from there.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="article-footer"></div>
+                </div>
+
+            </section>
+        </article>
+    </main>
+    
+    <script>
+        initComponentsWhenReady(function() {
+            const pageType = window.location.pathname.includes('/blog/') ? 'blog' : 'root';
+
+            // 1. Create fold component (title + author + image)
+            document.getElementById('article-fold').innerHTML = createFold({
+                title: 'Start Your Day Right: Healthy Breakfast Ideas with Yogurt and Fruits',
+                dateText: 'Updated March 4, 2026',
+                leadingTitle: 'Simple, nourishing breakfast ideas with yogurt and fruits for sustained energy.',
+                authorName: 'Samantha Reed',
+                authorImage: 'article/editor-sam.jpg',
+                authorBio: 'Samantha Reed is a wellness editor with over 10 years of experience in nutrition and holistic health. She specializes in translating complex nutritional science into practical, actionable advice for everyday living.',
+                imageSrc: 'article-5.jpg',
+                imageAlt: 'Healthy breakfast with yogurt and fruits',
+                imageCaption: '',
+                pageType: pageType
+            });
+
+            // 2. Create article footer
+            document.getElementById('article-footer').innerHTML = createArticleFooter({
+                pageType: pageType
+            });
+        }, { waitForArticle: true });
+    </script>
+</body>
+
+</html>

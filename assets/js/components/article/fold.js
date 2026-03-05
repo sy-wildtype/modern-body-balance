@@ -121,14 +121,9 @@
                 ? imageSrc
                 : `${assetPath}/images/${imageSrc}`;
 
-            const captionHTML = imageCaption
-                ? `<p class="fold-image-caption mt-1">${imageCaption}</p>`
-                : '';
-
             imageHTML = `
                 <div class="fold-image-wrapper">
                     <img src="${imagePath}" alt="${imageAlt || ''}" class="fold-image">
-                    ${captionHTML}
                 </div>
             `;
         }
@@ -140,7 +135,6 @@
                 ${dateHTML}
                 ${leadingTitleHTML}
                 ${authorHTML}
-                ${socialShareHTML}
                 ${imageHTML}
             </div>
         `;

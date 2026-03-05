@@ -129,7 +129,7 @@ function insertFooter(pageType = 'root') {
             <div class="container footer-text">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <p>&copy; 2026 Better Sleep Guides. All rights reserved.</p>
+                        <p>&copy; 2026 Modern Body Balance. All rights reserved.</p>
                         <p>
                             <a href="${privacyPath}">Privacy Policy</a> | 
                             <a href="${termsPath}">Terms of Service</a>

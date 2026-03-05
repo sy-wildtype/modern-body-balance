@@ -19,6 +19,7 @@ Disallow: /assets/css/
 Allow: /eating-well-balanced-diet.html
 Allow: /move-your-body.html
 Allow: /stay-hydrated.html
-Allow: /gut-health-101.html
-Allow: /sleep-better.html
+Allow: /5-things-women-adding-diet-2026.html
+Allow: /rest-pillar-wellness.html
+Allow: /5-habits-keep-weight-off-2026.html
 Allow: /index.html

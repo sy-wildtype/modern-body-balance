@@ -1,0 +1,28 @@
+                        <div class="article-content content-large">
+                            <div class="article-section">
+                                <p>A well-balanced diet is the foundation of good health and sustained energy. You don't need complicated meal plans or restrictive rules—just a clear understanding of how to nourish your body with the right mix of nutrients. Here are five key principles for eating well.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Fill Half Your Plate with Vegetables</h2>
+                                <p>Vegetables provide essential vitamins, minerals, and fiber that support every system in your body. Aim to fill half your plate with colorful vegetables at each meal. The variety of colors ensures you're getting a wide range of nutrients. Fresh, frozen, or roasted—all forms count toward your daily intake.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Choose Whole Grains Over Refined</h2>
+                                <p>Whole grains like brown rice, quinoa, oats, and whole wheat bread provide sustained energy and keep you feeling full longer. Unlike refined grains, they retain their fiber and nutrients. Start by swapping one refined grain product for a whole grain option, then gradually increase from there.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Include Lean Protein at Every Meal</h2>
+                                <p>Protein supports muscle health, immune function, and helps you stay satisfied between meals. Good sources include chicken, fish, beans, lentils, tofu, eggs, and Greek yogurt. Aim for a palm-sized portion of protein at each meal to support your body's needs throughout the day.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Don't Fear Healthy Fats</h2>
+                                <p>Healthy fats from sources like avocados, nuts, seeds, olive oil, and fatty fish are essential for brain health, hormone production, and nutrient absorption. Include a small amount of healthy fat at each meal—it helps you absorb fat-soluble vitamins and keeps you satisfied.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Stay Hydrated Throughout the Day</h2>
+                                <p>Water is crucial for digestion, nutrient transport, and overall body function. Aim for 8 glasses of water daily, more if you're active or in hot weather. Keep a water bottle nearby as a reminder. Herbal teas and water-rich foods like cucumbers and watermelon also contribute to your hydration.</p>
+                            </div>
+                            <div class="article-section">
+                                <p>Building a balanced diet isn't about perfection—it's about making consistent, nourishing choices that support your energy and wellbeing. Start with one or two changes and build from there. Your body will thank you.</p>
+                            </div>
+                        </div>

@@ -88,9 +88,9 @@ article.advertorial {
 /* Article Page Layout with Sidebar */
 .article-page-layout {
     display: grid;
-    grid-template-columns: 75% 1fr;
+    grid-template-columns: 1fr;
     gap: 2rem;
-    max-width: 1400px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 2rem;
     align-items: start;
@@ -137,21 +137,13 @@ article.advertorial {
 }
 
 .article-main-content .w-70 {
-    width: 85%;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .article-sidebar {
-    position: sticky;
-    top: 50%;
-    transform: translateY(-50%);
-    height: fit-content;
-    align-self: start;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    display: none;
 }
 
 .article-sidebar.visible {
@@ -281,7 +273,7 @@ nav {
     margin: 0 auto;
     padding: 0.5rem 2rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
@@ -525,6 +517,35 @@ nav h1 {
     margin-bottom: 1.5rem;
 }
 
+.shop-button {
+    display: inline-block;
+    background-color: #fff29a;
+    color: #000;
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.shop-button:hover {
+    background-color: #ffe770;
+    color: #000;
+}
+
+.link-yellow-underline {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #ffe770;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+}
+
+.link-yellow-underline:hover {
+    text-decoration-color: #ffe770;
+}
+
 .article-img {
     width: 75%;
     margin: 25px auto;
@@ -536,7 +557,7 @@ nav h1 {
 
 /* In-article product block: mobile only (desktop uses right column sidebar) */
 .article-mobile-product-insert {
-    display: none;
+    display: block;
     margin: 1.5rem 0;
 }
 @media (min-width: 1025px) {
@@ -587,9 +608,10 @@ section h3 {
 /* Articles Gallery Layout */
 .articles-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 450px);
     gap: 2rem;
     margin-top: 2rem;
+    justify-content: center;
 }
 
 /* Limit index page to max 6 entries */
@@ -756,9 +778,9 @@ section h3 {
 }
 
 .filter-btn.active {
-    background-color: #C9A8B8;
-    border-color: #C9A8B8;
-    color: #FFFFFF;
+    background-color: #fff29a;
+    border-color: #fff29a;
+    color: #2A2A2A;
 }
 
 .filter-btn[data-category="routine"]:hover {
@@ -972,6 +994,13 @@ div[id$="-ad"]:not(:empty) {
     animation: fadeInSmooth 0.6s ease-out;
 }
 
+/* Make article footer full width */
+#article-footer {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
 div#article-fold.component-loaded,
 div#article-footer.component-loaded,
 div[id$="-showcase"].component-loaded,
@@ -1155,6 +1184,18 @@ div[id$="-ad"].component-loaded {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 16px;
+}
+
+.content-large ul,
+.content-large ol {
+    padding-left: 1.5em;
+    margin: 0 0 1rem 0;
+    list-style-position: outside;
+}
+
+.content-large li {
+    margin-bottom: 0.5em;
+    line-height: 1.7;
 }
 
 /* ============================================
@@ -2136,6 +2177,7 @@ footer a:hover {
 .author-profile-section {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin: 2rem 0;
 }
@@ -2268,8 +2310,8 @@ footer a:hover {
 .hero-section-fullwidth {
     position: relative;
     width: 100%;
-    height: 500px;
-    background-image: url('../images/mbb-hero-2.jpg');
+    height: 700px;
+    background-image: url('../images/mbb-hero.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -2290,7 +2332,7 @@ footer a:hover {
 }
 
 .hero-content {
-    max-width: 550px;
+    max-width: 400px;
     color: black;
     padding: 2rem;
     background-image: url('../images/mbb-gradient-new.jpg');
@@ -2299,6 +2341,8 @@ footer a:hover {
     background-repeat: no-repeat;
     border-radius: 12px;
     backdrop-filter: blur(10px);
+    position: sticky;
+    top: 100px;
 }
 
 .hero-content h1 {
@@ -2330,7 +2374,7 @@ footer a:hover {
     }
 
     .hero-overlay {
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%);
+        background: transparent;
     }
 }
 
@@ -2366,16 +2410,16 @@ footer .container {
 }
 
 footer .footer-text {
-    color: white;
+    color: black;
 }
 
 footer .footer-text p {
-    color: white;
+    color: black;
     margin-bottom: 0.5rem;
 }
 
 footer .footer-text a {
-    color: white;
+    color: black;
     text-decoration: none;
     transition: opacity 0.3s ease;
 }

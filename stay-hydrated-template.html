@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Discover how to nourish your body with the right balance of nutrients for sustained energy and vitality. Learn practical tips for building a healthy, balanced diet.">
+    <meta name="keywords"
+        content="balanced diet, healthy eating, nutrition tips, whole foods, meal planning, nutrients, healthy lifestyle, wellness nutrition">
+    <title>Eating a Well-Balanced Diet for Optimal Health | Modern Body Balance</title>
+
+    <!-- Open Graph / social share -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Eating a Well-Balanced Diet for Optimal Health | Modern Body Balance">
+    <meta property="og:description" content="Discover how to nourish your body with the right balance of nutrients for sustained energy and vitality.">
+    <meta property="og:image" content="/assets/images/article-1.jpg">
+    <meta property="og:url" content="/eating-well-balanced-diet.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Eating a Well-Balanced Diet for Optimal Health | Modern Body Balance">
+    <meta name="twitter:description" content="Discover how to nourish your body with the right balance of nutrients for sustained energy and vitality.">
+    <meta name="twitter:image" content="/assets/images/article-1.jpg">
+
+    <!-- Head components (FOUC prevention, tracking init) -->
+    <script src="assets/js/head-components.js"></script>
+    
+    <!-- Tracking utilities (makes f() and getCookie() available) -->
+    <script src="assets/js/tracking.js"></script>
+    
+    <!-- Component initialization helper (must load before bundles) -->
+    <script src="assets/js/component-init.js"></script>
+    
+    <!-- Main JavaScript (navigation, footer) -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <!-- Component bundles -->
+    <script src="assets/js/components/article/fold.js"></script>
+    <script src="assets/js/components/article/article-footer.js"></script>
+    <script src="assets/js/product-components-bundle.js"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Navigation will be auto-inserted here -->
+    <main>
+        <article class="advertorial">
+            <section class="article-page-layout my-4">
+                <div class="article-main-content">
+                    <div class="w-70 mx-auto">
+                        <!-- Fold component (title + author + leading title + image) -->
+                        <div id="article-fold"></div>
+                        
+                        <div class="article-header">
+                            <span class="article-category-header category-routine">NUTRITION</span>
+                            <div class="article-separator category-routine"></div>
+                            <div class="article-byline">BY MODERN BODY BALANCE</div>
+                            <div class="article-date">March 4, 2026</div>
+                        </div>
+                        
+                        <div class="article-content content-large">
+                            <div class="article-section">
+                                <p>A well-balanced diet is the foundation of good health and sustained energy. You don't need complicated meal plans or restrictive rules—just a clear understanding of how to nourish your body with the right mix of nutrients. Here are five key principles for eating well.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Fill Half Your Plate with Vegetables</h2>
+                                <p>Vegetables provide essential vitamins, minerals, and fiber that support every system in your body. Aim to fill half your plate with colorful vegetables at each meal. The variety of colors ensures you're getting a wide range of nutrients. Fresh, frozen, or roasted—all forms count toward your daily intake.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Choose Whole Grains Over Refined</h2>
+                                <p>Whole grains like brown rice, quinoa, oats, and whole wheat bread provide sustained energy and keep you feeling full longer. Unlike refined grains, they retain their fiber and nutrients. Start by swapping one refined grain product for a whole grain option, then gradually increase from there.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Include Lean Protein at Every Meal</h2>
+                                <p>Protein supports muscle health, immune function, and helps you stay satisfied between meals. Good sources include chicken, fish, beans, lentils, tofu, eggs, and Greek yogurt. Aim for a palm-sized portion of protein at each meal to support your body's needs throughout the day.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Don't Fear Healthy Fats</h2>
+                                <p>Healthy fats from sources like avocados, nuts, seeds, olive oil, and fatty fish are essential for brain health, hormone production, and nutrient absorption. Include a small amount of healthy fat at each meal—it helps you absorb fat-soluble vitamins and keeps you satisfied.</p>
+                            </div>
+                            <div class="article-section">
+                                <h2>Stay Hydrated Throughout the Day</h2>
+                                <p>Water is crucial for digestion, nutrient transport, and overall body function. Aim for 8 glasses of water daily, more if you're active or in hot weather. Keep a water bottle nearby as a reminder. Herbal teas and water-rich foods like cucumbers and watermelon also contribute to your hydration.</p>
+                            </div>
+                            <div class="article-section">
+                                <p>Building a balanced diet isn't about perfection—it's about making consistent, nourishing choices that support your energy and wellbeing. Start with one or two changes and build from there. Your body will thank you.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="article-footer"></div>
+                </div>
+
+            </section>
+        </article>
+    </main>
+    
+    <script>
+        initComponentsWhenReady(function() {
+            const pageType = window.location.pathname.includes('/blog/') ? 'blog' : 'root';
+
+            // 1. Create fold component (title + author + image)
+            document.getElementById('article-fold').innerHTML = createFold({
+                title: 'Eating a Well-Balanced Diet for Optimal Health',
+                dateText: 'Updated March 4, 2026',
+                leadingTitle: 'Discover how to nourish your body with the right balance of nutrients for sustained energy and vitality.',
+                authorName: 'Samantha Reed',
+                authorImage: 'article/editor-sam.jpg',
+                authorBio: 'Samantha Reed is a wellness editor with over 10 years of experience in nutrition and holistic health. She specializes in translating complex nutritional science into practical, actionable advice for everyday living.',
+                imageSrc: 'article-1.jpg',
+                imageAlt: 'Eating a well-balanced diet',
+                imageCaption: '',
+                pageType: pageType
+            });
+
+            // 3. Create article footer
+            document.getElementById('article-footer').innerHTML = createArticleFooter({
+                pageType: pageType
+            });
+        }, { waitForArticle: true });
+    </script>
+</body>
+
+</html>
