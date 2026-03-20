@@ -1631,6 +1631,15 @@ footer a:hover {
         width: 100% !important;
     }
 
+    .article-main-content .w-70 {
+        max-width: 680px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+    }
+
     .content-large h2 {
         font-size: 1.4rem;
     }
