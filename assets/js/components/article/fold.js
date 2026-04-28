@@ -72,19 +72,11 @@
                 ? `<img class="author-profile-image" src="${authorImagePath}" alt="${authorImageAlt || `Author ${authorName}`}">`
                 : '';
 
-            const authorBioHTML = authorBio
-                ? `<div class="author-bio-section">
-                    <h4>About the Editor:</h4>
-                    <p>${authorBio}</p>
-                   </div>`
-                : '';
-
             authorHTML = `
                 <div class="author-profile-section">
                     ${authorImgHTML}
                     <span class="author-name">${authorName}</span>
                 </div>
-                ${authorBioHTML}
             `;
         }
 
@@ -131,11 +123,18 @@
         return `
             ${breadcrumbHTML}
             <div class="fold-section">
-                <h1 class="fold-title">${title}</h1>
-                ${dateHTML}
-                ${leadingTitleHTML}
-                ${authorHTML}
-                ${imageHTML}
+                <div class="fold-layout">
+                    ${imageHTML}
+                    <div class="fold-text-content">
+                        <h1 class="fold-title">${title}</h1>
+                        ${leadingTitleHTML}
+                        <div class="fold-meta">
+                            ${authorHTML}
+                            ${dateHTML}
+                            ${socialShareHTML}
+                        </div>
+                    </div>
+                </div>
             </div>
         `;
     }
