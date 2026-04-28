@@ -1,6 +1,6 @@
 // Ad Write Component
-// Creates a full-width ad with image background and bottom-left text overlay
-// Usage: createAdWhite({ image, brand, headline, body, ctaText, ctaUrl, pageType })
+// Creates a full-width ad with background image, dark overlay, and left-aligned white text
+// Usage: createAdWhite({ image, logo, headline, body, ctaText, ctaUrl, pageType })
 
 (function() {
     'use strict';
@@ -15,7 +15,7 @@
     function createAdWhite(config) {
         const {
             image,
-            brand,
+            logo,
             headline,
             body,
             ctaText,
@@ -29,24 +29,24 @@
         }
 
         const imagePath = resolveImagePath(image, pageType);
-        const ctaHTML = ctaText && ctaUrl
-            ? `<a href="${ctaUrl}" class="ad-overlay-cta" target="_blank" rel="noopener noreferrer">${ctaText}</a>`
-            : '';
-        const brandHTML = brand ? `<p class="ad-overlay-brand">${brand}</p>` : '';
-        const headlineHTML = headline ? `<p class="ad-overlay-headline">${headline}</p>` : '';
-        const bodyHTML = body ? `<p class="ad-overlay-body">${body}</p>` : '';
+        const isClickable = ctaUrl && ctaUrl !== '#';
+        const wrapperTag = isClickable ? 'a' : 'div';
+        const hrefAttr = isClickable ? `href="${ctaUrl}" target="_blank" rel="noopener noreferrer"` : '';
+        const wrapperClass = `ad-section ad${isClickable ? ' ad-clickable' : ''}`;
+
+        const logoHTML = logo ? `<div class="ad-logo">${logo}</div>` : '';
+        const headlineHTML = headline ? `<div class="ad-headline">${headline}</div>` : '';
+        const bodyHTML = body ? `<div class="ad-body">${body}</div>` : '';
+        const ctaHTML = ctaText ? `<div class="ad-cta-wrapper"><span class="ad-cta">${ctaText}</span></div>` : '';
 
         return `
-            <div class="ad-overlay-section ad">
-              <img src="${imagePath}" alt="${headline || brand || ''}" class="ad-overlay-img">
-              <div class="ad-overlay-content">
-                ${brandHTML}
-                ${headlineHTML}
-                ${bodyHTML}
-                ${ctaHTML}
-              </div>
+            <${wrapperTag} class="${wrapperClass}" style="background-image: url('${imagePath}');" ${hrefAttr}>
+              ${logoHTML}
+              ${headlineHTML}
+              ${bodyHTML}
+              ${ctaHTML}
               <span class="ad-label">Ad</span>
-            </div>
+            </${wrapperTag}>
         `.trim();
     }
 

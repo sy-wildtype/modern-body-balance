@@ -36,7 +36,10 @@
     <!-- Component bundles -->
     <script src="assets/js/components/article/fold.js"></script>
     <script src="assets/js/components/article/article-footer.js"></script>
+    <script src="assets/js/components/article/blog-recs.js"></script>
+    <script src="assets/js/components/article/comments.js"></script>
     <script src="assets/js/components/ads/ad-write.js"></script>
+    <script src="assets/js/components/ads/ad-side.js"></script>
     
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -79,6 +82,7 @@
                                     <img src="assets/images/article/strength-training.jpg" class="article-img" alt="Strength training workout">
                                 </div>
                             </div>
+                            <div id="article-ad-lululemon"></div>
                             <div class="article-section">
                                 <h2>3. Walking More Throughout the Day</h2>
                                 <p>One habit that's become surprisingly popular is simply walking more.</p>
@@ -125,12 +129,17 @@
                             <div id="article-ad-capitalone"></div>
                         </div>
                     </div>
+                    <div id="blog-recs"></div>
+                    <div id="ad-side-mobile" class="ad-side-mobile"></div>
+                    <div id="comments"></div>
                     <div id="article-footer"></div>
                 </div>
 
             </section>
         </article>
     </main>
+
+    <div id="ad-side" class="ad-side-wrap"></div>
     
     <script>
         initComponentsWhenReady(function() {
@@ -154,7 +163,7 @@
             // 2. Create Capital One ad
             document.getElementById('article-ad-capitalone').innerHTML = createAdWhite({
                 image: 'ads-capitalone.png',
-                brand: 'Capital One',
+                logo: 'Capital One',
                 headline: 'No Hassle. No Hidden Fees.',
                 body: 'Just rewards that work for you.',
                 ctaText: 'Learn More',
@@ -162,11 +171,108 @@
                 pageType: pageType
             });
 
-            // 3. Create article footer
+            // 3. Create Lululemon ad
+            document.getElementById('article-ad-lululemon').innerHTML = createAdWhite({
+                image: 'article/ad-lululemon.jpg',
+                logo: 'lululemon',
+                headline: 'Sweat. Grow. Be.',
+                body: 'Technical gear built for the way you move.',
+                ctaText: 'Shop Now',
+                ctaUrl: 'https://www.lululemon.com',
+                pageType: pageType
+            });
+
+            // 4. Create blog recommendations
+            document.getElementById('blog-recs').innerHTML = createBlogRecs({
+                pageType: pageType,
+                articles: [
+                    {
+                        title: '5 Exercises Women Are Doing in Their Spare Time to Lose Weight in 2026',
+                        image: 'article-1.jpg',
+                        url: '5-exercises-spare-time-lose-weight-2026.html',
+                        category: 'Fitness'
+                    },
+                    {
+                        title: 'The Scale Won\'t Move? 5 Things Women Are Adding to Their Diet in 2026',
+                        image: 'article-2.jpg',
+                        url: '5-things-women-adding-diet-2026.html',
+                        category: 'Nutrition'
+                    },
+                    {
+                        title: 'Eating a Well-Balanced Diet for Optimal Health',
+                        image: 'article-3.jpg',
+                        url: 'eating-well-balanced-diet.html',
+                        category: 'Wellness'
+                    }
+                ]
+            });
+
+            // 5. Create comments
+            document.getElementById('comments').innerHTML = createComments({
+                comments: [
+                    { name: 'Sarah M.', date: 'Mar 5, 2026', text: 'This article came at the perfect time. I just hit my goal weight last month and was already feeling the hunger creeping back. Going to look into the GLP-1 support.' },
+                    { name: 'Jessica R.', date: 'Mar 6, 2026', text: 'The strength training point is so underrated. I switched from cardio-only to lifting 3x a week and the difference in how I feel — and how my body looks — is huge.' },
+                    { name: 'Lauren T.', date: 'Mar 7, 2026', text: 'Walking after meals has genuinely changed my digestion and energy levels. Such a simple habit but it really works.' },
+                    { name: 'Michelle K.', date: 'Mar 9, 2026', text: 'I\'ve been prioritizing protein for about 6 weeks now and the snacking has basically stopped. I didn\'t realize how much of my snacking was just not being full enough at meals.' },
+                    { name: 'Amanda W.', date: 'Mar 11, 2026', text: 'The sleep section hit home. I was doing everything right with food and exercise but sleeping 5 hours a night. Once I fixed that, the cravings calmed down noticeably.' },
+                    { name: 'Rachel B.', date: 'Mar 14, 2026', text: 'Really well-written and practical. No extreme advice, just sustainable habits. Bookmarking this to re-read when I need a reset.' }
+                ]
+            });
+            initCommentForm();
+
+            // 6. Create article footer
             document.getElementById('article-footer').innerHTML = createArticleFooter({
                 pageType: pageType
             });
         }, { waitForArticle: true });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sideEl = document.getElementById('ad-side');
+            if (sideEl && typeof createAdSide === 'function') {
+                sideEl.innerHTML = createAdSide({
+                    ctaUrl: 'https://www.prada.com',
+                    pageType: 'root',
+                    mode: 'desktop',
+                    image: 'article/prada_vertical.png'
+                });
+            }
+
+            var mobileSideEl = document.getElementById('ad-side-mobile');
+            if (mobileSideEl && typeof createAdSide === 'function') {
+                mobileSideEl.innerHTML = createAdSide({
+                    ctaUrl: 'https://www.prada.com',
+                    pageType: 'root',
+                    mode: 'mobile',
+                    image: 'article/prada_horizontal.png'
+                });
+            }
+
+            function positionSideAd() {
+                var article = document.querySelector('.article-page-layout');
+                var ad = document.getElementById('ad-side');
+                var nav = document.querySelector('nav') || document.querySelector('header');
+                if (!article || !ad || window.innerWidth <= 1024) return;
+                var rect = article.getBoundingClientRect();
+                var navHeight = nav ? nav.offsetHeight : 0;
+                ad.style.left = (rect.right + window.scrollX + 16) + 'px';
+                ad.style.top = (navHeight + 16) + 'px';
+            }
+
+            function handleScroll() {
+                var ad = document.getElementById('ad-side');
+                var fold = document.getElementById('article-fold');
+                if (!ad || !fold || window.innerWidth <= 1024) return;
+                var foldBottom = fold.getBoundingClientRect().bottom;
+                ad.style.visibility = foldBottom < 0 ? 'visible' : 'hidden';
+            }
+
+            positionSideAd();
+            handleScroll();
+            window.addEventListener('resize', positionSideAd);
+            window.addEventListener('scroll', handleScroll);
+        });
     </script>
 </body>
 
