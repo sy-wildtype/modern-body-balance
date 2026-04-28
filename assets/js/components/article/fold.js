@@ -21,8 +21,7 @@
             homePath = 'index.html',
             homeText = 'Home',
             dateText = '',
-            pageType = 'root',
-            articleUrl = ''
+            pageType = 'root'
         } = config;
 
         if (!title) {
@@ -80,31 +79,6 @@
             `;
         }
 
-        // Social sharing buttons
-        const currentUrl = articleUrl || (typeof window !== 'undefined' ? window.location.href : '');
-        const encodedUrl = encodeURIComponent(currentUrl);
-        const encodedTitle = encodeURIComponent(title);
-
-        const socialShareHTML = `
-            <div class="social-share-buttons">
-                <a href="https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}" target="_blank" rel="noopener noreferrer" class="social-btn social-twitter" aria-label="Share on Twitter">
-                    <i class="bi bi-twitter-x"></i>
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-btn social-instagram" aria-label="Share on Instagram">
-                    <i class="bi bi-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}" target="_blank" rel="noopener noreferrer" class="social-btn social-linkedin" aria-label="Share on LinkedIn">
-                    <i class="bi bi-linkedin"></i>
-                </a>
-                <a href="mailto:?subject=${encodedTitle}&body=${encodedUrl}" class="social-btn social-email" aria-label="Share via Email">
-                    <i class="bi bi-envelope"></i>
-                </a>
-                <button class="social-btn social-copy" onclick="navigator.clipboard.writeText('${currentUrl}'); this.innerHTML='<i class=\\'bi bi-check\\'></i>'; setTimeout(() => this.innerHTML='<i class=\\'bi bi-link-45deg\\'></i>', 2000);" aria-label="Copy link">
-                    <i class="bi bi-link-45deg"></i>
-                </button>
-            </div>
-        `;
-
         // Image (optional, but common)
         let imageHTML = '';
         if (imageSrc) {
@@ -131,7 +105,6 @@
                         <div class="fold-meta">
                             ${authorHTML}
                             ${dateHTML}
-                            ${socialShareHTML}
                         </div>
                     </div>
                 </div>
