@@ -4,6 +4,35 @@
 
 (function() {
     'use strict';
+
+    /**
+     * Match blogs.html / index.html: Cormorant + Inter + Bootstrap Icons for the injected editorial header
+     * and article body type. Article pages only had style.css, so the header looked like a different font stack.
+     */
+    function ensureEditorialTypography() {
+        const head = document.head || document.getElementsByTagName('head')[0];
+        if (!head) {
+            return;
+        }
+        const hasGoogleFonts = !!document.querySelector(
+            'link[rel="stylesheet"][href*="fonts.googleapis.com"][href*="Cormorant"]'
+        );
+        if (!hasGoogleFonts) {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href =
+                'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap';
+            head.appendChild(link);
+        }
+        if (!document.querySelector('link[rel="stylesheet"][href*="bootstrap-icons"]')) {
+            const icons = document.createElement('link');
+            icons.rel = 'stylesheet';
+            icons.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css';
+            head.appendChild(icons);
+        }
+    }
+
+    ensureEditorialTypography();
     
     /**
      * Initialize FOUC (Flash of Unstyled Content) prevention

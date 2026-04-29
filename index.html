@@ -55,21 +55,122 @@
     <!-- Load main JavaScript -->
     <script src="assets/js/main.js" defer></script>
 </head>
-<body>
-    <main>
-        <section class="hero-section-fullwidth">
-            <div class="hero-overlay">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1>Welcome to Modern Body Balance</h1>
-                        <p class="hero-subtitle">Where wellness meets elegance. Nourish your body, move with intention, and discover the art of balanced living—beautifully curated for the modern woman.</p>
-                    </div>
-                </div>
+<body class="site-home">
+    <main class="site-home-main">
+        <section class="home-editorial" id="articles" aria-labelledby="home-latest-heading">
+            <div class="home-editorial-inner">
+                <aside class="home-latest" aria-label="Latest stories">
+                    <h2 class="home-latest-title" id="home-latest-heading">The Latest</h2>
+                    <ul class="home-latest-list">
+                        <li>
+                            <a href="move-your-body.html" class="home-latest-item">
+                                <img src="assets/images/article-2.jpg" width="72" height="72" alt="" class="home-latest-thumb">
+                                <div class="home-latest-text">
+                                    <span class="home-latest-headline">Move Your Body: Simple Ways to Stay Active Daily</span>
+                                    <span class="home-latest-meta"><i class="bi bi-clock" aria-hidden="true"></i> 7 min read</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="stay-hydrated.html" class="home-latest-item">
+                                <img src="assets/images/article-3.jpg" width="72" height="72" alt="" class="home-latest-thumb">
+                                <div class="home-latest-text">
+                                    <span class="home-latest-headline">Stay Hydrated: The Foundation of Body Balance</span>
+                                    <span class="home-latest-meta"><i class="bi bi-clock" aria-hidden="true"></i> 6 min read</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="5-things-women-adding-diet-2026.html" class="home-latest-item">
+                                <img src="assets/images/article-6.jpg" width="72" height="72" alt="" class="home-latest-thumb">
+                                <div class="home-latest-text">
+                                    <span class="home-latest-headline">The Scale Won't Move? 5 Things Women Are Adding to Their Diet in 2026</span>
+                                    <span class="home-latest-meta"><i class="bi bi-clock" aria-hidden="true"></i> 9 min read</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="rest-pillar-wellness.html" class="home-latest-item">
+                                <img src="assets/images/article-5.jpg" width="72" height="72" alt="" class="home-latest-thumb">
+                                <div class="home-latest-text">
+                                    <span class="home-latest-headline">Start Your Day Right: Healthy Breakfast Ideas with Yogurt and Fruits</span>
+                                    <span class="home-latest-meta"><i class="bi bi-clock" aria-hidden="true"></i> 6 min read</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="5-habits-keep-weight-off-2026.html" class="home-latest-item">
+                                <img src="assets/images/article-4.jpg" width="72" height="72" alt="" class="home-latest-thumb">
+                                <div class="home-latest-text">
+                                    <span class="home-latest-headline">5 Simple Habits Women Are Using in 2026 to Keep the Weight Off</span>
+                                    <span class="home-latest-meta"><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="blogs.html" class="home-view-all">Read all <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                </aside>
+
+                <article class="home-featured">
+                    <a href="eating-well-balanced-diet.html" class="home-featured-link">
+                        <figure class="home-featured-media">
+                            <img src="assets/images/article-1.jpg" alt="Eating a well-balanced diet for optimal health">
+                        </figure>
+                        <div class="home-featured-body">
+                            <span class="home-kicker">Nutrition</span>
+                            <h1 class="home-featured-title">Eating a Well-Balanced Diet for Optimal Health</h1>
+                            <p class="home-featured-deck">Discover how to nourish your body with the right balance of nutrients for sustained energy and vitality.</p>
+                            <div class="home-article-meta">
+                                <span class="home-read-stat"><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+
+                <aside class="home-rail" aria-label="More stories">
+                    <a href="5-things-women-adding-diet-2026.html" class="home-rail-card">
+                        <h3 class="home-rail-title">The Scale Won't Move? 5 Things Women Are Adding to Their Diet in 2026</h3>
+                        <div class="home-rail-body">
+                            <div class="home-rail-text">
+                                <p class="home-rail-deck">When the scale won't budge—GLP-1 support, fiber, protein, and blood sugar balance.</p>
+                                <div class="home-rail-meta-row">
+                                    <span class="home-rail-read"><i class="bi bi-clock" aria-hidden="true"></i> 9 min read</span>
+                                </div>
+                            </div>
+                            <img src="assets/images/article-6.jpg" width="120" height="120" alt="" class="home-rail-thumb">
+                        </div>
+                    </a>
+                    <div class="home-rail-rule" role="presentation"></div>
+                    <a href="5-habits-keep-weight-off-2026.html" class="home-rail-card">
+                        <h3 class="home-rail-title">5 Simple Habits Women Are Using in 2026 to Keep the Weight Off</h3>
+                        <div class="home-rail-body">
+                            <div class="home-rail-text">
+                                <p class="home-rail-deck">Sustainable habits that make maintaining results feel easier long after you hit your goal.</p>
+                                <div class="home-rail-meta-row">
+                                    <span class="home-rail-read"><i class="bi bi-clock" aria-hidden="true"></i> 8 min read</span>
+                                </div>
+                            </div>
+                            <img src="assets/images/article-4.jpg" width="120" height="120" alt="" class="home-rail-thumb">
+                        </div>
+                    </a>
+                    <div class="home-rail-rule" role="presentation"></div>
+                    <a href="move-your-body.html" class="home-rail-card">
+                        <h3 class="home-rail-title">Move Your Body: Simple Ways to Stay Active Daily</h3>
+                        <div class="home-rail-body">
+                            <div class="home-rail-text">
+                                <p class="home-rail-deck">Practical strategies to move more every day—no gym membership required.</p>
+                                <div class="home-rail-meta-row">
+                                    <span class="home-rail-read"><i class="bi bi-clock" aria-hidden="true"></i> 7 min read</span>
+                                </div>
+                            </div>
+                            <img src="assets/images/article-2.jpg" width="120" height="120" alt="" class="home-rail-thumb">
+                        </div>
+                    </a>
+                </aside>
             </div>
         </section>
 
-        <!-- Three Circle Features Section -->
-        <section class="features-circles py-5">
+        <section class="features-circles py-5" aria-label="Pillars of wellness">
             <div class="container">
                 <div class="row g-4">
                     <div class="col-md-4 text-center">
@@ -97,78 +198,32 @@
             </div>
         </section>
 
-        <!-- Articles (Max 6 entries) -->
-        <div class="container my-5" id="articles">
-            <section class="featured-content d-flex justify-content-between align-items-center mb-4">
-                        <h3>Latest Articles</h3>
-                <a href="blogs.html" class="read-all-link">
-                    <span>Read All</span>
-                    <i class="bi bi-arrow-right"></i>
-                </a>
-                    </section>
-            <div class="articles-gallery">
-                <a href="eating-well-balanced-diet.html" class="gallery-card-link">
-                    <div class="gallery-card">
-                        <img src="assets/images/article-1.jpg" alt="Eating a well-balanced diet">
-                        <div class="gallery-card-content">
-                            <h5>Eating a Well-Balanced Diet for Optimal Health</h5>
-                            <p>Discover how to nourish your body with the right balance of nutrients for sustained energy and vitality.</p>
-                            <span class="read-more-btn">READ MORE »</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="move-your-body.html" class="gallery-card-link">
-                    <div class="gallery-card">
-                        <img src="assets/images/article-2.jpg" alt="Move your body">
-                        <div class="gallery-card-content">
-                            <h5>Move Your Body: Simple Ways to Stay Active Daily</h5>
-                            <p>Learn practical strategies to incorporate more movement into your day, no gym membership required.</p>
-                            <span class="read-more-btn">READ MORE »</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="stay-hydrated.html" class="gallery-card-link">
-                    <div class="gallery-card">
-                        <img src="assets/images/article-3.jpg" alt="Stay hydrated">
-                        <div class="gallery-card-content">
-                            <h5>Stay Hydrated: The Foundation of Body Balance</h5>
-                            <p>Understand the crucial role of hydration in maintaining your body's natural balance and function.</p>
-                            <span class="read-more-btn">READ MORE »</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="5-things-women-adding-diet-2026.html" class="gallery-card-link">
-                    <div class="gallery-card">
-                        <img src="assets/images/article-6.jpg" alt="5 things women are adding to their diet">
-                        <div class="gallery-card-content">
-                            <h5>The Scale Won't Move? 5 Things Women Are Adding to Their Diet in 2026</h5>
-                            <p>When the scale won't budge. Five things women are adding to their diets—from GLP-1 support to fiber, protein, and blood sugar balance.</p>
-                            <span class="read-more-btn">READ MORE »</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="rest-pillar-wellness.html" class="gallery-card-link">
-                    <div class="gallery-card">
-                        <img src="assets/images/article-5.jpg" alt="Healthy breakfast with yogurt and fruits">
-                        <div class="gallery-card-content">
-                            <h5>Start Your Day Right: Healthy Breakfast Ideas with Yogurt and Fruits</h5>
-                            <p>Simple, nourishing breakfast ideas with yogurt and fruits for sustained energy.</p>
-                            <span class="read-more-btn">READ MORE »</span>
-                        </div>
-                    </div>
-                </a>
-                <a href="5-habits-keep-weight-off-2026.html" class="gallery-card-link">
-                    <div class="gallery-card">
-                        <img src="assets/images/article-4.jpg" alt="5 habits to keep weight off">
-                        <div class="gallery-card-content">
-                            <h5>5 Simple Habits Women Are Using in 2026 to Keep the Weight Off</h5>
-                            <p>Five simple habits women are adopting to help keep the weight off long-term.</p>
-                            <span class="read-more-btn">READ MORE »</span>
-                        </div>
-                    </div>
-                </a>
+        <section class="home-community-mosaic py-5" aria-labelledby="home-community-heading">
+            <div class="home-community-mosaic-inner">
+                <header class="home-community-mosaic-header text-center">
+                    <span class="home-community-mosaic-mark" aria-hidden="true">+</span>
+                    <h2 id="home-community-heading" class="home-community-mosaic-title">Join Our Community</h2>
+                    <p class="home-community-mosaic-subtitle">Wellness ideas, movement tips, and balanced living—explore what resonates with you.</p>
+                </header>
+                <div class="home-community-mosaic-grid">
+                    <a href="blogs.html" class="home-community-mosaic-item home-community-mosaic-item--feature">
+                        <img src="assets/images/article-1.jpg" width="800" height="1000" alt="Browse wellness articles on the blog" loading="lazy" decoding="async">
+                    </a>
+                    <a href="move-your-body.html" class="home-community-mosaic-item">
+                        <img src="assets/images/article-2.jpg" width="600" height="600" alt="Move your body: staying active daily" loading="lazy" decoding="async">
+                    </a>
+                    <a href="stay-hydrated.html" class="home-community-mosaic-item">
+                        <img src="assets/images/article-3.jpg" width="600" height="600" alt="Stay hydrated for body balance" loading="lazy" decoding="async">
+                    </a>
+                    <a href="eating-well-balanced-diet.html" class="home-community-mosaic-item">
+                        <img src="assets/images/rounded-2.jpg" width="600" height="600" alt="Eating a well-balanced diet" loading="lazy" decoding="async">
+                    </a>
+                    <a href="5-things-women-adding-diet-2026.html" class="home-community-mosaic-item">
+                        <img src="assets/images/article-4.jpg" width="600" height="600" alt="Metabolic wellness and nutrition" loading="lazy" decoding="async">
+                    </a>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 </body>
 </html>

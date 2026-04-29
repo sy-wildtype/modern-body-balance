@@ -89,31 +89,61 @@ function loadStylesheets(assetPath) {
     document.head.appendChild(bootstrapCSS);
 }
 
-// Navigation Component - Insert navigation HTML
-function insertNavigation(pageType = 'root', currentPage = '') {
-    // Determine the correct paths based on page type
-    const homePath = pageType === 'blog' ? '../index.html' : 'index.html';
-    const logoPath = pageType === 'blog' ? '../assets/images/logo/MBB-logo.png' : 'assets/images/logo/MBB-logo.png';
-    const blogPath = pageType === 'blog' ? 'index.html' : 'blog/index.html';
-    
-    // Check if we're on an article page (has article-fold element)
-    const isArticlePage = document.getElementById('article-fold') !== null;
-    
-    // Create navigation HTML - show brand text only on non-article pages
-    const brandTextHTML = isArticlePage ? '' : '<span class="brand-text">Modern Body Balance</span>';
-
-    const navigationHTML = `
-        <header>
-            <nav>
-                <a href="${homePath}" class="nav-brand">
-                    <img src="${logoPath}" alt="Modern Body Balance Logo" id="logo">
-                    ${brandTextHTML}
+/**
+ * Editorial site header (logo + wordmark + primary links).
+ * Single markup source for homepage and all article-style pages.
+ */
+function buildEditorialHeaderHTML(paths) {
+    const {
+        homePath,
+        logoPath,
+        blogsPath,
+        nutritionPath,
+        movementPath,
+        lifestylePath
+    } = paths;
+    return `
+        <header class="header-editorial">
+            <div class="header-editorial__top">
+                <a href="${homePath}" class="header-editorial__wordmark">
+                    <img src="${logoPath}" alt="" class="header-editorial__logo" width="52" height="52" decoding="async">
+                    <span class="header-editorial__brand-text">Modern Body Balance</span>
                 </a>
+            </div>
+            <div class="header-editorial__rule" aria-hidden="true"></div>
+            <nav class="header-editorial__links" aria-label="Primary">
+                <a href="${nutritionPath}">Nutrition</a>
+                <a href="${movementPath}">Movement</a>
+                <a href="${lifestylePath}">Lifestyle</a>
+                <a href="${blogsPath}">All Articles</a>
             </nav>
         </header>
     `;
-    
-    // Insert navigation at the beginning of body
+}
+
+// Navigation Component - Insert navigation HTML
+function insertNavigation(pageType = 'root', currentPage = '') {
+    if (document.querySelector('header.header-editorial')) {
+        return;
+    }
+
+    const homePath = pageType === 'blog' ? '../index.html' : 'index.html';
+    const logoPath = pageType === 'blog' ? '../assets/images/logo/MBB-logo.png' : 'assets/images/logo/MBB-logo.png';
+
+    const blogsPath = pageType === 'blog' ? '../blogs.html' : 'blogs.html';
+    const nutritionPath = pageType === 'blog' ? '../eating-well-balanced-diet.html' : 'eating-well-balanced-diet.html';
+    const movementPath = pageType === 'blog' ? '../move-your-body.html' : 'move-your-body.html';
+    const lifestylePath = pageType === 'blog' ? '../rest-pillar-wellness.html' : 'rest-pillar-wellness.html';
+
+    const navigationHTML = buildEditorialHeaderHTML({
+        homePath,
+        logoPath,
+        blogsPath,
+        nutritionPath,
+        movementPath,
+        lifestylePath
+    });
+
     document.body.insertAdjacentHTML('afterbegin', navigationHTML);
 }
 
@@ -121,22 +151,25 @@ function insertNavigation(pageType = 'root', currentPage = '') {
 function insertFooter(pageType = 'root') {
     // Determine the correct paths based on page type
     const privacyPath = pageType === 'blog' ? '../privacy-policy.html' : 'privacy-policy.html';
-    const termsPath = pageType === 'blog' ? '../terms-of-service.html' : 'terms-of-service.html';
-    
-    // Create footer HTML
+
+    // Create footer HTML (newsletter; gradient via CSS)
     const footerHTML = `
-        <footer>
-            <div class="container footer-text">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <p>&copy; 2026 Modern Body Balance. All rights reserved.</p>
-                        <p>
-                            <a href="${privacyPath}">Privacy Policy</a> | 
-                            <a href="${termsPath}">Terms of Service</a>
-                        </p>
+        <footer class="site-footer">
+            <section class="site-footer-newsletter" aria-labelledby="footer-newsletter-heading">
+                <div class="container">
+                    <div class="site-footer-newsletter-inner">
+                        <h2 id="footer-newsletter-heading" class="site-footer-newsletter-title">Subscribe to our newsletter</h2>
+                        <p class="site-footer-newsletter-deck">Wellness ideas, new stories, and gentle reminders to stay balanced—occasionally in your inbox, never spammy.</p>
+                        <form class="site-footer-newsletter-form" action="https://formsubmit.co/support@pacagen.com" method="POST">
+                            <input type="hidden" name="_subject" value="Newsletter signup: Modern Body Balance">
+                            <label class="visually-hidden" for="site-footer-email">Email address</label>
+                            <input type="email" id="site-footer-email" name="email" class="site-footer-newsletter-input" placeholder="Your email address" required autocomplete="email" maxlength="254">
+                            <button type="submit" class="site-footer-newsletter-btn">Subscribe</button>
+                        </form>
+                        <p class="site-footer-newsletter-fineprint">By subscribing you agree we may contact you about Modern Body Balance. Read our <a href="${privacyPath}">Privacy Policy</a> to see how we handle your information.</p>
                     </div>
                 </div>
-            </div>
+            </section>
         </footer>
     `;
     
@@ -164,9 +197,7 @@ function insertFooter(pageType = 'root') {
     // Insert navigation and footer when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function() {
-            if (!document.querySelector('nav')) {
-                insertNavigation(pageType, currentPage);
-            }
+            insertNavigation(pageType, currentPage);
             // Only insert main footer if there's no article-footer element (article pages handle their own footer)
             if (!document.querySelector('footer') && !document.getElementById('article-footer')) {
                 insertFooter(pageType);
@@ -174,9 +205,7 @@ function insertFooter(pageType = 'root') {
         });
     } else {
         // DOM already loaded
-        if (!document.querySelector('nav')) {
-            insertNavigation(pageType, currentPage);
-        }
+        insertNavigation(pageType, currentPage);
         // Only insert main footer if there's no article-footer element (article pages handle their own footer)
         if (!document.querySelector('footer') && !document.getElementById('article-footer')) {
             insertFooter(pageType);
