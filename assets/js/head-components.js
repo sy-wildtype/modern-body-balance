@@ -82,7 +82,7 @@
         
         // Load Converge script
         const script = document.createElement('script');
-        script.src = 'https://static.runconverge.com/pixels/AlO7bK.js';
+        script.src = 'https://static.runconverge.com/pixels/dqZORz.js';
         script.async = true;
         document.head.appendChild(script);
     }
